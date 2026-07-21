@@ -102,41 +102,40 @@ async function buatPDF(formData, excelData) {
     doc.setFontSize(10);
     doc.setFont("helvetica","normal");
 
-    doc.text("Nama Guru",layout.setY(35););
-    doc.text(": " + formData.namaGuru,50,y);
+    doc.text("Nama Guru", 15, layout.getY());
+doc.text(": " + formData.namaGuru, 50, layout.getY());
 
-    layout.move(6);
+layout.move(6);
 
-    doc.text("NIP",layout.setY(35););
-    doc.text(": " + formData.nipGuru,50,y);
+doc.text("NIP", 15, layout.getY());
+doc.text(": " + formData.nipGuru, 50, layout.getY());
 
-    layout.move(6);
+layout.move(6);
 
-    doc.text("Status Guru",layout.setY(35););
-    doc.text(": " + formData.statusGuru,50,y);
+doc.text("Status Guru", 15, layout.getY());
+doc.text(": " + formData.statusGuru, 50, layout.getY());
 
-    layout.move(6);
+layout.move(6);
 
-    doc.text("No Sertifikasi",layout.setY(35););
-    doc.text(": " + formData.noSertifikasi,50,y);
+doc.text("No Sertifikasi", 15, layout.getY());
+doc.text(": " + formData.noSertifikasi, 50, layout.getY());
 
-    layout.move(6);
+layout.move(6);
 
-    doc.text("Pangkat",layout.setY(35););
-    doc.text(": " + formData.pangkat,50,y);
+doc.text("Pangkat", 15, layout.getY());
+doc.text(": " + formData.pangkat, 50, layout.getY());
 
-    layout.move(6);
+layout.move(6);
 
-    doc.text("Pendidikan",layout.setY(35););
-    doc.text(": " + formData.pendidikan,50,y);
-
+doc.text("Pendidikan", 15, layout.getY());
+doc.text(": " + formData.pendidikan, 50, layout.getY());
 
 
     //----------------------------------------------------
     // DATA MADRASAH
     //----------------------------------------------------
 
-    y = 35;
+let y = 35;
 
     doc.text("Nama Madrasah",160,y);
     doc.text(": " + formData.namaMadrasah,205,y);
