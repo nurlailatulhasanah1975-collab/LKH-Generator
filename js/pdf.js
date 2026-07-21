@@ -68,78 +68,36 @@ async function buatPDF(formData, excelData) {
 
     const layout = new LayoutManager(doc);
     
-//----------------------------------------------------
-// KOP SURAT (TES 1)
-//----------------------------------------------------
+    //----------------------------------------------------
+    // HEADER
+    //----------------------------------------------------
 
-const KOP = {
-    top: 15,
-    left: 15,
-    right: 282,
-    logoSize: 20
-};
+    doc.setFont("helvetica","bold");
+    doc.setFontSize(16);
 
-// Border sementara sebagai acuan visual
-doc.setDrawColor(180);
-doc.rect(
-    KOP.left,
-    KOP.top,
-    KOP.right - KOP.left,
-    28
-);
+    doc.text(
+        "JURNAL MENGAJAR DAN LAPORAN KINERJA HARIAN",
+        148,
+        15,
+        {align:"center"}
+    );
 
-// Placeholder Logo
-doc.circle(
-    KOP.left + 10,
-    KOP.top + 14,
-    8
-);
+    doc.setFontSize(12);
 
-doc.setFont("helvetica","bold");
-doc.setFontSize(15);
+    doc.text(
+        "PREVIEW V0.1",
+        148,
+        22,
+        {align:"center"}
+    );
 
-doc.text(
-    "KEMENTERIAN AGAMA REPUBLIK INDONESIA",
-    148,
-    KOP.top + 6,
-    { align:"center" }
-);
 
-doc.setFontSize(14);
 
-doc.text(
-    "MTs AL-IHSAN TANAH GROGOT",
-    148,
-    KOP.top + 13,
-    { align:"center" }
-);
-
-doc.setFont("helvetica","normal");
-doc.setFontSize(9);
-
-doc.text(
-    "Alamat Madrasah (sementara)",
-    148,
-    KOP.top + 19,
-    { align:"center" }
-);
-
-// Garis bawah kop
-doc.setDrawColor(0);
-
-doc.setLineWidth(0.5);
-
-doc.line(
-    KOP.left,
-    KOP.top + 30,
-    KOP.right,
-    KOP.top + 30
-);
     //----------------------------------------------------
     // DATA GURU
     //----------------------------------------------------
 
-    layout.setY(50);
+    layout.setY(35);
 
     doc.setFontSize(10);
     doc.setFont("helvetica","normal");
