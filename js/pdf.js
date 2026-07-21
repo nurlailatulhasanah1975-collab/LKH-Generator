@@ -141,7 +141,7 @@ doc.line(
     // DATA GURU
     //----------------------------------------------------
 
-    layout.setY(35);
+    layout.setY(50);
 
     doc.setFontSize(10);
     doc.setFont("helvetica","normal");
