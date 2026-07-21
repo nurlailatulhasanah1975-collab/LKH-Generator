@@ -9,13 +9,65 @@ async function buatPDF(formData, excelData) {
     const { jsPDF } = window.jspdf;
 
     const doc = new jsPDF({
-
         orientation: "landscape",
         unit: "mm",
         format: "a4"
-
     });
 
+    // =====================================================
+    // STANDAR DOKUMEN
+    // =====================================================
+
+    const PAGE = {
+        width: doc.internal.pageSize.getWidth(),
+        height: doc.internal.pageSize.getHeight()
+    };
+
+    // Margin menggunakan standar proyek
+    // (nilai akan mengikuti spesifikasi yang telah ditetapkan)
+    const MARGIN = {
+        left: 15,
+        right: 15,
+        top: 15,
+        bottom: 15
+    };
+
+    // =====================================================
+    // LAYOUT ENGINE v0.2 (Fondasi)
+    // =====================================================
+
+    class LayoutManager {
+
+        constructor(doc){
+
+            this.doc = doc;
+            this.page = 1;
+            this.y = 0;
+
+        }
+
+        setY(value){
+
+            this.y = value;
+
+        }
+
+        getY(){
+
+            return this.y;
+
+        }
+
+        move(mm){
+
+            this.y += mm;
+
+        }
+
+    }
+
+    const layout = new LayoutManager(doc);
+    
     //----------------------------------------------------
     // HEADER
     //----------------------------------------------------
@@ -45,37 +97,37 @@ async function buatPDF(formData, excelData) {
     // DATA GURU
     //----------------------------------------------------
 
-    let y = 35;
+    layout.setY(35);
 
     doc.setFontSize(10);
     doc.setFont("helvetica","normal");
 
-    doc.text("Nama Guru",15,y);
+    doc.text("Nama Guru",layout.setY(35););
     doc.text(": " + formData.namaGuru,50,y);
 
-    y+=6;
+    layout.move(6);
 
-    doc.text("NIP",15,y);
+    doc.text("NIP",layout.setY(35););
     doc.text(": " + formData.nipGuru,50,y);
 
-    y+=6;
+    layout.move(6);
 
-    doc.text("Status Guru",15,y);
+    doc.text("Status Guru",layout.setY(35););
     doc.text(": " + formData.statusGuru,50,y);
 
-    y+=6;
+    layout.move(6);
 
-    doc.text("No Sertifikasi",15,y);
+    doc.text("No Sertifikasi",layout.setY(35););
     doc.text(": " + formData.noSertifikasi,50,y);
 
-    y+=6;
+    layout.move(6);
 
-    doc.text("Pangkat",15,y);
+    doc.text("Pangkat",layout.setY(35););
     doc.text(": " + formData.pangkat,50,y);
 
-    y+=6;
+    layout.move(6);
 
-    doc.text("Pendidikan",15,y);
+    doc.text("Pendidikan",layout.setY(35););
     doc.text(": " + formData.pendidikan,50,y);
 
 
