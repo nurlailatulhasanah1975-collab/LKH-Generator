@@ -282,27 +282,15 @@ const panel = {
     titleHeight: 8
 };
 
-const panel2X = panel.left + panel.width + panel.gap;
-
-//--------------------------------------
-// Frame kiri
+// Layout Isi Panel
 //--------------------------------------
 
-doc.setLineWidth(0.2);
+const totalBaris = 6; // panel kiri memiliki 6 baris
 
-doc.rect(
-    panel.left,
-    panel.top,
-    panel.width,
-    panel.height
-);
+const startY = panel.top + panel.titleHeight + 8;
+const endY   = panel.top + panel.height - 5;
 
-doc.line(
-    panel.left,
-    panel.top + panel.titleHeight,
-    panel.left + panel.width,
-    panel.top + panel.titleHeight
-);
+const lineGap = (endY - startY) / (totalBaris - 1);
 
 //--------------------------------------
 // Frame kanan
@@ -344,36 +332,47 @@ doc.text(
 );
 
 //--------------------------------------
+//--------------------------------------
 // Isi Panel Kiri
 //--------------------------------------
 
 doc.setFont("helvetica","normal");
 doc.setFontSize(10);
 
-let y1 = panel.top + 15;
+const leftLabelX = panel.left + 5;
+const leftColonX = panel.left + 43;
+const leftValueX = panel.left + 46;
 
-doc.text("Nama Guru",20,y1);
-doc.text(": " + formData.namaGuru,60,y1);
+let y1 = startY;
 
-y1 += 7;
-doc.text("NIP",20,y1);
-doc.text(": " + formData.nipGuru,60,y1);
+doc.text("Nama Guru", leftLabelX, y1);
+doc.text(":", leftColonX, y1);
+doc.text(formData.namaGuru, leftValueX, y1);
 
-y1 += 7;
-doc.text("Status Guru",20,y1);
-doc.text(": " + formData.statusGuru,60,y1);
+y1 += lineGap;
+doc.text("NIP", leftLabelX, y1);
+doc.text(":", leftColonX, y1);
+doc.text(formData.nipGuru, leftValueX, y1);
 
-y1 += 7;
-doc.text("No Sertifikasi",20,y1);
-doc.text(": " + formData.noSertifikasi,60,y1);
+y1 += lineGap;
+doc.text("Status Guru", leftLabelX, y1);
+doc.text(":", leftColonX, y1);
+doc.text(formData.statusGuru, leftValueX, y1);
 
-y1 += 7;
-doc.text("Pangkat",20,y1);
-doc.text(": " + formData.pangkat,60,y1);
+y1 += lineGap;
+doc.text("No Sertifikasi", leftLabelX, y1);
+doc.text(":", leftColonX, y1);
+doc.text(formData.noSertifikasi, leftValueX, y1);
 
-y1 += 7;
-doc.text("Pendidikan",20,y1);
-doc.text(": " + formData.pendidikan,60,y1);
+y1 += lineGap;
+doc.text("Pangkat", leftLabelX, y1);
+doc.text(":", leftColonX, y1);
+doc.text(formData.pangkat, leftValueX, y1);
+
+y1 += lineGap;
+doc.text("Pendidikan", leftLabelX, y1);
+doc.text(":", leftColonX, y1);
+doc.text(formData.pendidikan, leftValueX, y1);
 
 //--------------------------------------
 // Isi Panel Kanan
@@ -401,7 +400,39 @@ doc.text(": " + formData.statusMadrasah, valueX, y2);
 
 y2 += 7;
 doc.text("Internet", labelX, y2);
-doc.text(": " + formData.internet, valueX, y2);
+doc.text(": " + formData.internet, valueX, y2);//--------------------------------------
+// Isi Panel Kanan
+//--------------------------------------
+
+const rightLabelX = panel2X + 6;
+const rightColonX = panel2X + 46;
+const rightValueX = panel2X + 49;
+
+let y2 = startY;
+
+doc.text("Nama Madrasah", rightLabelX, y2);
+doc.text(":", rightColonX, y2);
+doc.text(formData.namaMadrasah, rightValueX, y2);
+
+y2 += lineGap;
+doc.text("Alamat Madrasah", rightLabelX, y2);
+doc.text(":", rightColonX, y2);
+doc.text(formData.alamatMadrasah, rightValueX, y2);
+
+y2 += lineGap;
+doc.text("Jumlah Ruang Kelas", rightLabelX, y2);
+doc.text(":", rightColonX, y2);
+doc.text(formData.jumlahRuangKelas, rightValueX, y2);
+
+y2 += lineGap;
+doc.text("Status Madrasah", rightLabelX, y2);
+doc.text(":", rightColonX, y2);
+doc.text(formData.statusMadrasah, rightValueX, y2);
+
+y2 += lineGap;
+doc.text("Internet", rightLabelX, y2);
+doc.text(":", rightColonX, y2);
+doc.text(formData.internet, rightValueX, y2);
     
     //----------------------------------------------------
     // DATA EXCEL
