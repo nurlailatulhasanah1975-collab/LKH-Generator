@@ -243,73 +243,138 @@ doc.line(
     //----------------------------------------------------
     // DATA GURU
     //----------------------------------------------------
+//----------------------------------------------------
+// PANEL IDENTITAS
+//----------------------------------------------------
 
-    layout.setY(75);
+const panel = {
+    top: 72,
+    left: 15,
+    gap: 4,
 
-    doc.setFontSize(10);
-    doc.setFont("helvetica","normal");
+    width: 124,
+    height: 48,
 
-    doc.text("Nama Guru", 15, layout.getY());
-doc.text(": " + formData.namaGuru, 50, layout.getY());
+    titleHeight: 8
+};
 
-layout.move(6);
+const panel2X = panel.left + panel.width + panel.gap;
 
-doc.text("NIP", 15, layout.getY());
-doc.text(": " + formData.nipGuru, 50, layout.getY());
+//--------------------------------------
+// Frame kiri
+//--------------------------------------
 
-layout.move(6);
+doc.setLineWidth(0.2);
 
-doc.text("Status Guru", 15, layout.getY());
-doc.text(": " + formData.statusGuru, 50, layout.getY());
+doc.rect(
+    panel.left,
+    panel.top,
+    panel.width,
+    panel.height
+);
 
-layout.move(6);
+doc.line(
+    panel.left,
+    panel.top + panel.titleHeight,
+    panel.left + panel.width,
+    panel.top + panel.titleHeight
+);
 
-doc.text("No Sertifikasi", 15, layout.getY());
-doc.text(": " + formData.noSertifikasi, 50, layout.getY());
+//--------------------------------------
+// Frame kanan
+//--------------------------------------
 
-layout.move(6);
+doc.rect(
+    panel2X,
+    panel.top,
+    panel.width,
+    panel.height
+);
 
-doc.text("Pangkat", 15, layout.getY());
-doc.text(": " + formData.pangkat, 50, layout.getY());
+doc.line(
+    panel2X,
+    panel.top + panel.titleHeight,
+    panel2X + panel.width,
+    panel.top + panel.titleHeight
+);
 
-layout.move(6);
+//--------------------------------------
+// Judul Panel
+//--------------------------------------
 
-doc.text("Pendidikan", 15, layout.getY());
-doc.text(": " + formData.pendidikan, 50, layout.getY());
+doc.setFont("times","bold");
+doc.setFontSize(11);
 
+doc.text(
+    "IDENTITAS GURU",
+    panel.left + panel.width/2,
+    panel.top + 5.5,
+    {align:"center"}
+);
 
-    //----------------------------------------------------
-    // DATA MADRASAH
-    //----------------------------------------------------
+doc.text(
+    "IDENTITAS MADRASAH",
+    panel2X + panel.width/2,
+    panel.top + 5.5,
+    {align:"center"}
+);
 
-let y = 75;
+//--------------------------------------
+// Isi Panel Kiri
+//--------------------------------------
 
-    doc.text("Nama Madrasah",160,y);
-    doc.text(": " + formData.namaMadrasah,205,y);
+doc.setFont("helvetica","normal");
+doc.setFontSize(10);
 
-    y+=6;
+let y1 = panel.top + 15;
 
-    doc.text("NPSN",160,y);
-    doc.text(": " + formData.npsn,205,y);
+doc.text("Nama Guru",20,y1);
+doc.text(": " + formData.namaGuru,60,y1);
 
-    y+=6;
+y1 += 7;
+doc.text("NIP",20,y1);
+doc.text(": " + formData.nipGuru,60,y1);
 
-    doc.text("NSM",160,y);
-    doc.text(": " + formData.nsm,205,y);
+y1 += 7;
+doc.text("Status Guru",20,y1);
+doc.text(": " + formData.statusGuru,60,y1);
 
-    y+=6;
+y1 += 7;
+doc.text("No Sertifikasi",20,y1);
+doc.text(": " + formData.noSertifikasi,60,y1);
 
-    doc.text("Status",160,y);
-    doc.text(": " + formData.statusMadrasah,205,y);
+y1 += 7;
+doc.text("Pangkat",20,y1);
+doc.text(": " + formData.pangkat,60,y1);
 
-    y+=6;
+y1 += 7;
+doc.text("Pendidikan",20,y1);
+doc.text(": " + formData.pendidikan,60,y1);
 
-    doc.text("Internet",160,y);
-    doc.text(": " + formData.internet,205,y);
+//--------------------------------------
+// Isi Panel Kanan
+//--------------------------------------
 
+let y2 = panel.top + 15;
 
+doc.text("Nama Madrasah",148,y2);
+doc.text(": " + formData.namaMadrasah,190,y2);
 
-    //----------------------------------------------------
+y2 += 7;
+doc.text("NPSN",148,y2);
+doc.text(": " + formData.npsn,190,y2);
+
+y2 += 7;
+doc.text("NSM",148,y2);
+doc.text(": " + formData.nsm,190,y2);
+
+y2 += 7;
+doc.text("Status",148,y2);
+doc.text(": " + formData.statusMadrasah,190,y2);
+
+y2 += 7;
+doc.text("Internet",148,y2);
+doc.text(": " + formData.internet,190,y2);    //----------------------------------------------------
     // GARIS
     //----------------------------------------------------
 
