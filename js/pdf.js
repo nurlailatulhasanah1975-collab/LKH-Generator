@@ -239,6 +239,26 @@ doc.line(
     282,
     69.2
 );
+
+    doc.setFont("times","bold");
+doc.setFontSize(14);
+
+doc.text(
+    "JURNAL MENGAJAR DAN LAPORAN KINERJA HARIAN",
+    148.5,
+    76,
+    { align: "center" }
+);
+
+doc.setFontSize(12);
+
+doc.text(
+    "BULAN : " + formData.bulan + " " + formData.tahun,
+    148.5,
+    83,
+    { align: "center" }
+);
+    
     
     //----------------------------------------------------
     // DATA GURU
@@ -248,7 +268,7 @@ doc.line(
 //----------------------------------------------------
 
 const panel = {
-    top: 68,
+    top: 90,
     left: 15,
     gap: 4,
 
