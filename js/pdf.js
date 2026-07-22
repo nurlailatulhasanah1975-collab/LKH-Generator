@@ -178,7 +178,7 @@ doc.text(
 doc.text(
     "NSM : 12.12.64.01.0002",
     220,
-    46,
+    41,
     {align:"center"}
 );
 
@@ -228,7 +228,7 @@ doc.line(
     15,
     63,
     282,
-    68
+    63
 );
 
 doc.setLineWidth(0.2);
