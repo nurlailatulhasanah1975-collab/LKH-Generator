@@ -77,12 +77,12 @@ async function buatPDF(formData, excelData) {
 
 const kop = {
     x: 15,
-    y: 5,
+    y: 0,
     w: 267,
     h: 42,
 
     logoX: 17,
-    logoY: 7,
+    logoY: 2,
     logoW: 28,
     logoH: 34,
 
