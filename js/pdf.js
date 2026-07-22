@@ -393,8 +393,8 @@ doc.text(": " + formData.internet,190,y2);    //--------------------------------
 
     let sheet = getSheetByIndex(excelData,0);
 
-    y = 120;
-
+    y = 128;
+    
     doc.setFont("helvetica","bold");
 
     doc.text("DATA DARI EXCEL",15,y);
