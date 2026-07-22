@@ -313,7 +313,12 @@ let y = 75;
     // GARIS
     //----------------------------------------------------
 
-    doc.line(15,75,282,75);
+    doc.line(
+    15,
+    110,
+    282,
+    110
+);
 
 
 
@@ -323,7 +328,7 @@ let y = 75;
 
     let sheet = getSheetByIndex(excelData,0);
 
-    y = 82;
+    y = 117;
 
     doc.setFont("helvetica","bold");
 
