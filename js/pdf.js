@@ -244,7 +244,7 @@ doc.line(
     // DATA GURU
     //----------------------------------------------------
 
-    layout.setY(50);
+    layout.setY(75);
 
     doc.setFontSize(10);
     doc.setFont("helvetica","normal");
@@ -282,7 +282,7 @@ doc.text(": " + formData.pendidikan, 50, layout.getY());
     // DATA MADRASAH
     //----------------------------------------------------
 
-let y = 35;
+let y = 75;
 
     doc.text("Nama Madrasah",160,y);
     doc.text(": " + formData.namaMadrasah,205,y);
