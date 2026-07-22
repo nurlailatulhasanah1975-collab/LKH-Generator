@@ -237,7 +237,7 @@ doc.line(
     15,
     64.2,
     282,
-    69.2
+    64.2
 );
 
     doc.setFont("times","bold");
