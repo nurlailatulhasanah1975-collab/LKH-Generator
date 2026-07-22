@@ -491,7 +491,45 @@ const TABLE = {
     ]
 
 };
-    
+
+//----------------------------------------------------
+// TABLE LAYOUT ENGINE
+//----------------------------------------------------
+
+function buildColumns(table){
+
+    const totalWeight = table.columns.reduce(
+        (sum, col) => sum + col.weight,
+        0
+    );
+
+    const mmPerWeight = table.width / totalWeight;
+
+    let currentX = table.x;
+
+    return table.columns.map(col => {
+
+        const width = col.weight * mmPerWeight;
+
+        const result = {
+
+            ...col,
+
+            x: currentX,
+
+            width: width,
+
+            center: currentX + (width / 2)
+
+        };
+
+        currentX += width;
+
+        return result;
+
+    });
+
+}
     
     //----------------------------------------------------
     // DATA EXCEL
