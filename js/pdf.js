@@ -75,68 +75,171 @@ async function buatPDF(formData, excelData) {
 // KOP SURAT
 //----------------------------------------------------
 
-const KOP = {
-    top: 15,
-    left: 15,
-    right: 282,
-    logoSize: 20
+const kop = {
+    x: 15,
+    y: 15,
+    w: 267,
+    h: 42,
+
+    logoX: 17,
+    logoY: 17,
+    logoW: 28,
+    logoH: 34,
+
+    textLeft: 50,
+    textRight: 282
 };
 
-// Border sementara sebagai acuan visual
-doc.setDrawColor(180);
-doc.rect(
-    KOP.left,
-    KOP.top,
-    KOP.right - KOP.left,
-    28
-);
+//====================================================
+// Logo Placeholder
+//====================================================
 
-// Placeholder Logo
-doc.circle(
-    KOP.left + 10,
-    KOP.top + 14,
-    8
+doc.setDrawColor(120);
+
+doc.rect(
+    kop.logoX,
+    kop.logoY,
+    kop.logoW,
+    kop.logoH
 );
 
 doc.setFont("helvetica","bold");
-doc.setFontSize(15);
+doc.setFontSize(8);
 
 doc.text(
-    "KEMENTERIAN AGAMA REPUBLIK INDONESIA",
-    148,
-    KOP.top + 6,
-    { align:"center" }
+    "LOGO",
+    kop.logoX + 14,
+    kop.logoY + 18,
+    {align:"center"}
 );
 
-doc.setFontSize(14);
+//====================================================
+// Yayasan
+//====================================================
+
+doc.setFont("times","bold");
+doc.setFontSize(12);
 
 doc.text(
-    "MTs AL-IHSAN TANAH GROGOT",
-    148,
-    KOP.top + 13,
-    { align:"center" }
+    "YAYASAN AL-IHSAN AL-ISLAMI",
+    166,
+    22,
+    {align:"center"}
 );
 
-doc.setFont("helvetica","normal");
+//====================================================
+// Nama Madrasah
+//====================================================
+
+doc.setFont("times","bold");
+doc.setFontSize(24);
+
+doc.text(
+    "MTs. AL IHSAN TANAH GROGOT",
+    166,
+    34,
+    {align:"center"}
+);
+
+//====================================================
+// Garis 1
+//====================================================
+
+doc.setLineWidth(0.3);
+
+doc.line(
+    50,
+    39,
+    282,
+    39
+);
+
+//====================================================
+// NPSN | NSM
+//====================================================
+
+doc.setFont("times","bold");
 doc.setFontSize(9);
 
 doc.text(
-    "Alamat Madrasah (sementara)",
-    148,
-    KOP.top + 19,
-    { align:"center" }
+    "NPSN : 30410000",
+    92,
+    46,
+    {align:"center"}
 );
 
-// Garis bawah kop
-doc.setDrawColor(0);
+doc.text(
+    "|",
+    166,
+    46,
+    {align:"center"}
+);
 
-doc.setLineWidth(0.5);
+doc.text(
+    "NSM : 12.12.64.01.0002",
+    220,
+    46,
+    {align:"center"}
+);
+
+//====================================================
+// Garis 2
+//====================================================
 
 doc.line(
-    KOP.left,
-    KOP.top + 30,
-    KOP.right,
-    KOP.top + 30
+    50,
+    49,
+    282,
+    49
+);
+
+//====================================================
+// Alamat
+//====================================================
+
+doc.setFont("times","normal");
+doc.setFontSize(8);
+
+doc.text(
+    "Alamat : Jl. Senaken Ds. Senaken RT. IV Tanah Grogot Kab. Paser Kalimantan Timur 76251",
+    166,
+    56,
+    {align:"center"}
+);
+
+//====================================================
+// Telepon & Email
+//====================================================
+
+doc.text(
+    "Telp. (0543) 5236320    |    e-mail : mtsalihsan_senaken@yahoo.com",
+    166,
+    63,
+    {align:"center"}
+);
+
+//====================================================
+// Garis Ganda
+//====================================================
+
+doc.setLineWidth(0.8);
+
+doc.line(
+    15,
+    68,
+    282,
+    68
+);
+
+doc.setLineWidth(0.2);
+
+doc.line(
+    15,
+    69.2,
+    282,
+    69.2
+);
+    
 );    //----------------------------------------------------
     // DATA GURU
     //----------------------------------------------------
