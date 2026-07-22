@@ -263,16 +263,183 @@ doc.text(
 // PANEL IDENTITAS
 //----------------------------------------------------
 
+//----------------------------------------------------
+// PANEL IDENTITAS
+//----------------------------------------------------
 
+const panelGap = 4;
 
+const contentWidth = PAGE.width - MARGIN.left - MARGIN.right;
 
+const panel = {
+    top: 90,
+    left: MARGIN.left,
+    gap: panelGap,
+    width: (contentWidth - panelGap) / 2,
+    height: 52,
+    titleHeight: 8
+};
 
+const panel2X = panel.left + panel.width + panel.gap;
 
+//--------------------------------------
+// Layout Isi Panel
+//--------------------------------------
 
+const leftRows = 6;
+const rightRows = 5;
 
+const startY = panel.top + panel.titleHeight + 8;
 
+const endYLeft = panel.top + panel.height - 5;
+const endYRight = panel.top + panel.height - 5;
 
+const leftGap = (endYLeft - startY) / (leftRows - 1);
+const rightGap = (endYRight - startY) / (rightRows - 1);
 
+//--------------------------------------
+// Frame kiri
+//--------------------------------------
+
+doc.setLineWidth(0.2);
+
+doc.rect(
+    panel.left,
+    panel.top,
+    panel.width,
+    panel.height
+);
+
+doc.line(
+    panel.left,
+    panel.top + panel.titleHeight,
+    panel.left + panel.width,
+    panel.top + panel.titleHeight
+);
+
+//--------------------------------------
+// Frame kanan
+//--------------------------------------
+
+doc.rect(
+    panel2X,
+    panel.top,
+    panel.width,
+    panel.height
+);
+
+doc.line(
+    panel2X,
+    panel.top + panel.titleHeight,
+    panel2X + panel.width,
+    panel.top + panel.titleHeight
+);
+
+//--------------------------------------
+// Judul Panel
+//--------------------------------------
+
+doc.setFont("times","bold");
+doc.setFontSize(11);
+
+doc.text(
+    "IDENTITAS GURU",
+    panel.left + panel.width / 2,
+    panel.top + 5.5,
+    { align:"center" }
+);
+
+doc.text(
+    "IDENTITAS MADRASAH",
+    panel2X + panel.width / 2,
+    panel.top + 5.5,
+    { align:"center" }
+);
+
+//--------------------------------------
+// Isi Panel Kiri
+//--------------------------------------
+
+doc.setFont("helvetica","normal");
+doc.setFontSize(10);
+
+const leftLabelX = panel.left + 5;
+const leftColonX = panel.left + 43;
+const leftValueX = panel.left + 46;
+
+let y1 = startY;
+
+doc.text("Nama Guru", leftLabelX, y1);
+doc.text(":", leftColonX, y1);
+doc.text(formData.namaGuru, leftValueX, y1);
+
+y1 += leftGap;
+
+doc.text("NIP", leftLabelX, y1);
+doc.text(":", leftColonX, y1);
+doc.text(formData.nipGuru, leftValueX, y1);
+
+y1 += leftGap;
+
+doc.text("Status Guru", leftLabelX, y1);
+doc.text(":", leftColonX, y1);
+doc.text(formData.statusGuru, leftValueX, y1);
+
+y1 += leftGap;
+
+doc.text("No Sertifikasi", leftLabelX, y1);
+doc.text(":", leftColonX, y1);
+doc.text(formData.noSertifikasi, leftValueX, y1);
+
+y1 += leftGap;
+
+doc.text("Pangkat", leftLabelX, y1);
+doc.text(":", leftColonX, y1);
+doc.text(formData.pangkat, leftValueX, y1);
+
+y1 += leftGap;
+
+doc.text("Pendidikan", leftLabelX, y1);
+doc.text(":", leftColonX, y1);
+doc.text(formData.pendidikan, leftValueX, y1);
+
+//--------------------------------------
+// Isi Panel Kanan
+//--------------------------------------
+
+const rightLabelX = panel2X + 6;
+const rightColonX = panel2X + 46;
+const rightValueX = panel2X + 49;
+
+let y2 = startY;
+
+doc.text("Nama Madrasah", rightLabelX, y2);
+doc.text(":", rightColonX, y2);
+doc.text(formData.namaMadrasah, rightValueX, y2);
+
+y2 += rightGap;
+
+doc.text("Alamat Madrasah", rightLabelX, y2);
+doc.text(":", rightColonX, y2);
+doc.text(formData.alamatMadrasah, rightValueX, y2);
+
+y2 += rightGap;
+
+doc.text("Jumlah Ruang Kelas", rightLabelX, y2);
+doc.text(":", rightColonX, y2);
+doc.text(formData.jumlahRuangKelas, rightValueX, y2);
+
+y2 += rightGap;
+
+doc.text("Status Madrasah", rightLabelX, y2);
+doc.text(":", rightColonX, y2);
+doc.text(formData.statusMadrasah, rightValueX, y2);
+
+y2 += rightGap;
+
+doc.text("Internet", rightLabelX, y2);
+doc.text(":", rightColonX, y2);
+doc.text(formData.internet, rightValueX, y2);
     
     //----------------------------------------------------
     // DATA EXCEL
