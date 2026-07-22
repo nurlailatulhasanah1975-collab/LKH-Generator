@@ -267,12 +267,16 @@ doc.text(
 // PANEL IDENTITAS
 //----------------------------------------------------
 
+const panelGap = 4;
+
+const contentWidth = PAGE.width - MARGIN.left - MARGIN.right;
+
 const panel = {
     top: 90,
-    left: 15,
-    gap: 4,
+    left: MARGIN.left,
+    gap: panelGap,
 
-    width: 124,
+    width: (contentWidth - panelGap) / 2,
     height: 52,
 
     titleHeight: 8
