@@ -328,7 +328,7 @@ let y = 75;
 
     let sheet = getSheetByIndex(excelData,0);
 
-    y = 117;
+    y = 120;
 
     doc.setFont("helvetica","bold");
 
