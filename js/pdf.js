@@ -440,6 +440,58 @@ y2 += rightGap;
 doc.text("Internet", rightLabelX, y2);
 doc.text(":", rightColonX, y2);
 doc.text(formData.internet, rightValueX, y2);
+
+
+    //----------------------------------------------------
+// TABLE ENGINE v0.1
+//----------------------------------------------------
+
+const TABLE = {
+
+    // posisi tabel
+    x: MARGIN.left,
+    y: panel.top + panel.height + 8,
+
+    // ukuran dasar
+    width: PAGE.width - MARGIN.left - MARGIN.right,
+
+    rowHeight: 7,
+
+    headerHeight: 14,
+
+    // definisi kolom
+    columns: [
+
+        { key:"no",       title:"No",                  weight:4 },
+
+        { key:"tanggal",  title:"Hari / Tanggal",      weight:16 },
+
+        { key:"jam",      title:"Jam Ke-",             weight:7 },
+
+        { key:"kelas",    title:"Kelas / Ekskul",      weight:8 },
+
+        { key:"mapel",    title:"Mata Pelajaran",      weight:14 },
+
+        { key:"kikd",     title:"No KI/KD",            weight:8 },
+
+        { key:"materi",   title:"Kegiatan / Materi",   weight:28 },
+
+        { key:"hasil",    title:"Hasil",               weight:10 },
+
+        { key:"vol",      title:"Vol",                 weight:5 },
+
+        { key:"s",        title:"S",                   weight:3 },
+
+        { key:"i",        title:"I",                   weight:3 },
+
+        { key:"a",        title:"A",                   weight:3 },
+
+        { key:"ket",      title:"Ket",                 weight:7 }
+
+    ]
+
+};
+    
     
     //----------------------------------------------------
     // DATA EXCEL
