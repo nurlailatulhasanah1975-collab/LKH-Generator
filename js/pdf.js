@@ -26,10 +26,10 @@ async function buatPDF(formData, excelData) {
     // Margin menggunakan standar proyek
     // (nilai akan mengikuti spesifikasi yang telah ditetapkan)
     const MARGIN = {
-        left: 15,
-        right: 15,
-        top: 15,
-        bottom: 15
+        left: 8,
+        right: 8,
+        top: 10,
+        bottom: 10
     };
 
     // =====================================================
