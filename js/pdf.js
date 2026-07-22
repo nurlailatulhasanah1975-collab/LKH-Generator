@@ -494,6 +494,16 @@ const TABLE = {
 
     const COL = buildColumns(TABLE);
 
+//----------------------------------------------------
+// MENCARI KOLOM BERDASARKAN KEY
+//----------------------------------------------------
+
+function getColumn(key){
+
+    return COL.find(col => col.key === key);
+
+}
+    
     //----------------------------------------------------
 // DRAW TABLE HEADER
 //----------------------------------------------------
