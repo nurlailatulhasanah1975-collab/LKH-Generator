@@ -381,26 +381,25 @@ doc.text(": " + formData.pendidikan,60,y1);
 
 let y2 = panel.top + 15;
 
-doc.text("Nama Madrasah",148,y2);
-doc.text(": " + formData.namaMadrasah,190,y2);
+doc.text("Nama Madrasah", 148, y2);
+doc.text(": " + formData.namaMadrasah, 190, y2);
 
 y2 += 7;
-doc.text("NPSN",148,y2);
-doc.text(": " + formData.npsn,190,y2);
+doc.text("Alamat Madrasah", 148, y2);
+doc.text(": " + formData.alamatMadrasah, 190, y2);
 
 y2 += 7;
-doc.text("NSM",148,y2);
-doc.text(": " + formData.nsm,190,y2);
+doc.text("Jumlah Ruang Kelas", 148, y2);
+doc.text(": " + formData.jumlahRuangKelas, 190, y2);
 
 y2 += 7;
-doc.text("Status",148,y2);
-doc.text(": " + formData.statusMadrasah,190,y2);
+doc.text("Status Madrasah", 148, y2);
+doc.text(": " + formData.statusMadrasah, 190, y2);
 
 y2 += 7;
-doc.text("Internet",148,y2);
-doc.text(": " + formData.internet,190,y2);    
-
-
+doc.text("Internet", 148, y2);
+doc.text(": " + formData.internet, 190, y2);
+    
     //----------------------------------------------------
     // DATA EXCEL
     //----------------------------------------------------
