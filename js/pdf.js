@@ -605,13 +605,50 @@ let y = TABLE.y + TABLE.headerHeight;
 
     y += 8;
 
+//----------------------------------------------------
+// DRAW SATU BARIS TABEL
+//----------------------------------------------------
+
+function drawTableRow(doc, row, y){
+
+    const no = getColumn("no");
+    const tanggal = getColumn("tanggal");
+    const jam = getColumn("jam");
+
+    doc.setFont("helvetica","normal");
+    doc.setFontSize(8);
+
+    // No
+    doc.text(
+        String(row[0] || ""),
+        no.center,
+        y,
+        {align:"center"}
+    );
+
+    // Hari / Tanggal
+    doc.text(
+        String(row[1] || ""),
+        tanggal.x + 1,
+        y
+    );
+
+    // Jam
+    doc.text(
+        String(row[2] || ""),
+        jam.center,
+        y,
+        {align:"center"}
+    );
+
+}
+    //MODE LAMA
+    
     for(let r=0;r<sheet.length;r++){
 
         let row = sheet[r];
 
-        let text = row.join(" | ");
-
-        doc.text(text.substring(0,170),15,y);
+        drawTableRow(doc, row, y);
 
         y += 5;
 
