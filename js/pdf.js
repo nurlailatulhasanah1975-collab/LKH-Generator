@@ -577,12 +577,15 @@ function buildColumns(table){
 drawTableHeader(doc, TABLE, COL);
     
     //----------------------------------------------------
-    // DATA EXCEL
-    //----------------------------------------------------
+// DATA EXCEL
+//----------------------------------------------------
 
-    let sheet = getSheetByIndex(excelData,0);
+drawTableHeader(doc, TABLE, COL);
+    
+let sheet = getSheetByIndex(excelData,0);
 
-    y = panel.top + panel.height + 8;
+// Posisi awal mengikuti TABLE Engine
+let y = TABLE.y + TABLE.headerHeight;
     
     doc.setFont("helvetica","bold");
 
