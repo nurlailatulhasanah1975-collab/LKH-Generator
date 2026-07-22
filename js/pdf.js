@@ -492,6 +492,49 @@ const TABLE = {
 
 };
 
+    const COL = buildColumns(TABLE);
+
+    //----------------------------------------------------
+// DRAW TABLE HEADER
+//----------------------------------------------------
+
+function drawTableHeader(doc, table, columns){
+
+    const y = table.y;
+
+    // Border luar
+    doc.setLineWidth(0.2);
+
+    doc.rect(
+        table.x,
+        y,
+        table.width,
+        table.headerHeight
+    );
+
+    // Garis vertikal
+    columns.forEach(col=>{
+
+        doc.line(
+            col.x,
+            y,
+            col.x,
+            y + table.headerHeight
+        );
+
+    });
+
+    // Garis kanan terakhir
+    doc.line(
+        table.x + table.width,
+        y,
+        table.x + table.width,
+        y + table.headerHeight
+    );
+
+}
+    
+
 //----------------------------------------------------
 // TABLE LAYOUT ENGINE
 //----------------------------------------------------
@@ -530,6 +573,8 @@ function buildColumns(table){
     });
 
 }
+
+drawTableHeader(doc, TABLE, COL);
     
     //----------------------------------------------------
     // DATA EXCEL
