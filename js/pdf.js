@@ -77,12 +77,12 @@ async function buatPDF(formData, excelData) {
 
 const kop = {
     x: 15,
-    y: 15,
+    y: 5,
     w: 267,
     h: 42,
 
     logoX: 17,
-    logoY: 17,
+    logoY: 7,
     logoW: 28,
     logoH: 34,
 
@@ -123,7 +123,7 @@ doc.setFontSize(12);
 doc.text(
     "YAYASAN AL-IHSAN AL-ISLAMI",
     166,
-    22,
+    17,
     {align:"center"}
 );
 
@@ -137,7 +137,7 @@ doc.setFontSize(24);
 doc.text(
     "MTs. AL IHSAN TANAH GROGOT",
     166,
-    34,
+    29,
     {align:"center"}
 );
 
@@ -149,7 +149,7 @@ doc.setLineWidth(0.3);
 
 doc.line(
     50,
-    39,
+    34,
     282,
     39
 );
@@ -164,7 +164,7 @@ doc.setFontSize(9);
 doc.text(
     "NPSN : 30410000",
     92,
-    46,
+    41,
     {align:"center"}
 );
 
@@ -188,7 +188,7 @@ doc.text(
 
 doc.line(
     50,
-    49,
+    44,
     282,
     49
 );
@@ -203,7 +203,7 @@ doc.setFontSize(8);
 doc.text(
     "Alamat : Jl. Senaken Ds. Senaken RT. IV Tanah Grogot Kab. Paser Kalimantan Timur 76251",
     166,
-    56,
+    51,
     {align:"center"}
 );
 
@@ -214,7 +214,7 @@ doc.text(
 doc.text(
     "Telp. (0543) 5236320    |    e-mail : mtsalihsan_senaken@yahoo.com",
     166,
-    63,
+    58,
     {align:"center"}
 );
 
@@ -226,7 +226,7 @@ doc.setLineWidth(0.8);
 
 doc.line(
     15,
-    68,
+    63,
     282,
     68
 );
@@ -235,7 +235,7 @@ doc.setLineWidth(0.2);
 
 doc.line(
     15,
-    69.2,
+    64.2,
     282,
     69.2
 );
@@ -248,7 +248,7 @@ doc.line(
 //----------------------------------------------------
 
 const panel = {
-    top: 72,
+    top: 68,
     left: 15,
     gap: 4,
 
@@ -393,7 +393,7 @@ doc.text(": " + formData.internet,190,y2);    //--------------------------------
 
     let sheet = getSheetByIndex(excelData,0);
 
-    y = 128;
+    y = panel.top + panel.height + 8;
     
     doc.setFont("helvetica","bold");
 
