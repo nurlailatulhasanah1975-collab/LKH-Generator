@@ -77,7 +77,7 @@ async function buatPDF(formData, excelData) {
 
 const kop = {
     x: 15,
-    y: 0,
+    y: 5,
     w: 267,
     h: 42,
 
@@ -118,7 +118,7 @@ doc.text(
 //====================================================
 
 doc.setFont("times","bold");
-doc.setFontSize(12);
+doc.setFontSize(16);
 
 doc.text(
     "YAYASAN AL-IHSAN AL-ISLAMI",
