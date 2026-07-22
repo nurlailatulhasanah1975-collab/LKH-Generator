@@ -97,7 +97,7 @@ function ambilDataForm(){
 
         alamatMadrasah : document.getElementById("alamatMadrasah").value,
 
-        jumlahRuang : document.getElementById("jumlahRuang").value,
+        jumlahRuangKelas : document.getElementById("jumlahRuang").value,
 
         statusMadrasah : document.getElementById("statusMadrasah").value,
 
