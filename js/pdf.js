@@ -259,180 +259,20 @@ doc.text(
     { align: "center" }
 );
     
-    
-    //----------------------------------------------------
-    // DATA GURU
-    //----------------------------------------------------
 //----------------------------------------------------
 // PANEL IDENTITAS
 //----------------------------------------------------
 
-const panelGap = 4;
 
-const contentWidth = PAGE.width - MARGIN.left - MARGIN.right;
 
-const panel = {
-    top: 90,
-    left: MARGIN.left,
-    gap: panelGap,
 
-    width: (contentWidth - panelGap) / 2,
-    height: 52,
 
-    titleHeight: 8
-};
 
-// Layout Isi Panel
-//--------------------------------------
 
-const totalBaris = 6; // panel kiri memiliki 6 baris
 
-const startY = panel.top + panel.titleHeight + 8;
-const endY   = panel.top + panel.height - 5;
 
-const lineGap = (endY - startY) / (totalBaris - 1);
 
-//--------------------------------------
-// Frame kanan
-//--------------------------------------
 
-doc.rect(
-    panel2X,
-    panel.top,
-    panel.width,
-    panel.height
-);
-
-doc.line(
-    panel2X,
-    panel.top + panel.titleHeight,
-    panel2X + panel.width,
-    panel.top + panel.titleHeight
-);
-
-//--------------------------------------
-// Judul Panel
-//--------------------------------------
-
-doc.setFont("times","bold");
-doc.setFontSize(11);
-
-doc.text(
-    "IDENTITAS GURU",
-    panel.left + panel.width/2,
-    panel.top + 5.5,
-    {align:"center"}
-);
-
-doc.text(
-    "IDENTITAS MADRASAH",
-    panel2X + panel.width/2,
-    panel.top + 5.5,
-    {align:"center"}
-);
-
-//--------------------------------------
-//--------------------------------------
-// Isi Panel Kiri
-//--------------------------------------
-
-doc.setFont("helvetica","normal");
-doc.setFontSize(10);
-
-const leftLabelX = panel.left + 5;
-const leftColonX = panel.left + 43;
-const leftValueX = panel.left + 46;
-
-let y1 = startY;
-
-doc.text("Nama Guru", leftLabelX, y1);
-doc.text(":", leftColonX, y1);
-doc.text(formData.namaGuru, leftValueX, y1);
-
-y1 += lineGap;
-doc.text("NIP", leftLabelX, y1);
-doc.text(":", leftColonX, y1);
-doc.text(formData.nipGuru, leftValueX, y1);
-
-y1 += lineGap;
-doc.text("Status Guru", leftLabelX, y1);
-doc.text(":", leftColonX, y1);
-doc.text(formData.statusGuru, leftValueX, y1);
-
-y1 += lineGap;
-doc.text("No Sertifikasi", leftLabelX, y1);
-doc.text(":", leftColonX, y1);
-doc.text(formData.noSertifikasi, leftValueX, y1);
-
-y1 += lineGap;
-doc.text("Pangkat", leftLabelX, y1);
-doc.text(":", leftColonX, y1);
-doc.text(formData.pangkat, leftValueX, y1);
-
-y1 += lineGap;
-doc.text("Pendidikan", leftLabelX, y1);
-doc.text(":", leftColonX, y1);
-doc.text(formData.pendidikan, leftValueX, y1);
-
-//--------------------------------------
-// Isi Panel Kanan
-//--------------------------------------
-
-const labelX = panel2X + 6;     // jarak dari tepi kiri panel kanan
-const valueX = panel2X + 48;    // posisi nilai
-
-let y2 = panel.top + 15;
-
-doc.text("Nama Madrasah", labelX, y2);
-doc.text(": " + formData.namaMadrasah, valueX, y2);
-
-y2 += 7;
-doc.text("Alamat Madrasah", labelX, y2);
-doc.text(": " + formData.alamatMadrasah, valueX, y2);
-
-y2 += 7;
-doc.text("Jumlah Ruang Kelas", labelX, y2);
-doc.text(": " + formData.jumlahRuangKelas, valueX, y2);
-
-y2 += 7;
-doc.text("Status Madrasah", labelX, y2);
-doc.text(": " + formData.statusMadrasah, valueX, y2);
-
-y2 += 7;
-doc.text("Internet", labelX, y2);
-doc.text(": " + formData.internet, valueX, y2);//--------------------------------------
-// Isi Panel Kanan
-//--------------------------------------
-
-const rightLabelX = panel2X + 6;
-const rightColonX = panel2X + 46;
-const rightValueX = panel2X + 49;
-
-let y2 = startY;
-
-doc.text("Nama Madrasah", rightLabelX, y2);
-doc.text(":", rightColonX, y2);
-doc.text(formData.namaMadrasah, rightValueX, y2);
-
-y2 += lineGap;
-doc.text("Alamat Madrasah", rightLabelX, y2);
-doc.text(":", rightColonX, y2);
-doc.text(formData.alamatMadrasah, rightValueX, y2);
-
-y2 += lineGap;
-doc.text("Jumlah Ruang Kelas", rightLabelX, y2);
-doc.text(":", rightColonX, y2);
-doc.text(formData.jumlahRuangKelas, rightValueX, y2);
-
-y2 += lineGap;
-doc.text("Status Madrasah", rightLabelX, y2);
-doc.text(":", rightColonX, y2);
-doc.text(formData.statusMadrasah, rightValueX, y2);
-
-y2 += lineGap;
-doc.text("Internet", rightLabelX, y2);
-doc.text(":", rightColonX, y2);
-doc.text(formData.internet, rightValueX, y2);
     
     //----------------------------------------------------
     // DATA EXCEL
