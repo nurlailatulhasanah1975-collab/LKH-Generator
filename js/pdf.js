@@ -379,26 +379,29 @@ doc.text(": " + formData.pendidikan,60,y1);
 // Isi Panel Kanan
 //--------------------------------------
 
+const labelX = panel2X + 6;     // jarak dari tepi kiri panel kanan
+const valueX = panel2X + 48;    // posisi nilai
+
 let y2 = panel.top + 15;
 
-doc.text("Nama Madrasah", 148, y2);
-doc.text(": " + formData.namaMadrasah, 190, y2);
+doc.text("Nama Madrasah", labelX, y2);
+doc.text(": " + formData.namaMadrasah, valueX, y2);
 
 y2 += 7;
-doc.text("Alamat Madrasah", 148, y2);
-doc.text(": " + formData.alamatMadrasah, 190, y2);
+doc.text("Alamat Madrasah", labelX, y2);
+doc.text(": " + formData.alamatMadrasah, valueX, y2);
 
 y2 += 7;
-doc.text("Jumlah Ruang Kelas", 148, y2);
-doc.text(": " + formData.jumlahRuangKelas, 190, y2);
+doc.text("Jumlah Ruang Kelas", labelX, y2);
+doc.text(": " + formData.jumlahRuangKelas, valueX, y2);
 
 y2 += 7;
-doc.text("Status Madrasah", 148, y2);
-doc.text(": " + formData.statusMadrasah, 190, y2);
+doc.text("Status Madrasah", labelX, y2);
+doc.text(": " + formData.statusMadrasah, valueX, y2);
 
 y2 += 7;
-doc.text("Internet", 148, y2);
-doc.text(": " + formData.internet, 190, y2);
+doc.text("Internet", labelX, y2);
+doc.text(": " + formData.internet, valueX, y2);
     
     //----------------------------------------------------
     // DATA EXCEL
