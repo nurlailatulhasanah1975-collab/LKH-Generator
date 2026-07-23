@@ -691,10 +691,11 @@ doc.text(
 );
 
 doc.text(
-    row.tanggal,
+    String(row.tanggal),
     tanggal.x + 1,
     y + 2
 );
+    
 // Jam
 doc.text(
     String(row.jam),
