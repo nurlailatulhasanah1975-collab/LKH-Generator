@@ -118,7 +118,7 @@ doc.text(
 //====================================================
 
 doc.setFont("times","bold");
-doc.setFontSize(16);
+doc.setFontSize(12);
 
 doc.text(
     "YAYASAN AL-IHSAN AL-ISLAMI",
