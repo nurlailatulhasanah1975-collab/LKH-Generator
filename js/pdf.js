@@ -504,7 +504,11 @@ function getColumn(key){
 
 }
     
-    //----------------------------------------------------
+//----------------------------------------------------
+// DRAW TABLE HEADER
+//----------------------------------------------------
+
+//----------------------------------------------------
 // DRAW TABLE HEADER
 //----------------------------------------------------
 
@@ -512,9 +516,9 @@ function drawTableHeader(doc, table, columns){
 
     const y = table.y;
 
-    // Border luar
     doc.setLineWidth(0.2);
 
+    // Border luar
     doc.rect(
         table.x,
         y,
@@ -542,8 +546,28 @@ function drawTableHeader(doc, table, columns){
         y + table.headerHeight
     );
 
-}
-    
+    // ==========================
+    // Judul Kolom
+    // ==========================
+
+    doc.setFont("times","bold");
+    doc.setFontSize(8);
+
+    columns.forEach(col=>{
+
+        doc.text(
+            col.title,
+            col.center,
+            y + table.headerHeight / 2 + 1,
+            {
+                align:"center",
+                baseline:"middle"
+            }
+        );
+
+    });
+
+}    
 
 //----------------------------------------------------
 // TABLE LAYOUT ENGINE
