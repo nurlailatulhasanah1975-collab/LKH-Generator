@@ -644,71 +644,42 @@ return {
 
     tanggal : `${tanggal} ${formData.bulan} ${formData.tahun}`,
     
-    const tanggal = Number(row[0]);
+    return {
 
-    const bulanMap = {
-        Januari:0,
-        Februari:1,
-        Maret:2,
-        April:3,
-        Mei:4,
-        Juni:5,
-        Juli:6,
-        Agustus:7,
-        September:8,
-        Oktober:9,
-        November:10,
-        Desember:11
-    };
+    no : nomor,
 
-    const d = new Date(
-        Number(formData.tahun),
-        bulanMap[formData.bulan],
-        tanggal
-    );
+    hari : getNamaHari(
+        tanggal,
+        formData.bulan,
+        formData.tahun
+    ),
 
-    const hari = [
-        "Minggu",
-        "Senin",
-        "Selasa",
-        "Rabu",
-        "Kamis",
-        "Jumat",
-        "Sabtu"
-    ];
+    tanggal : `${tanggal} ${formData.bulan} ${formData.tahun}`,
 
-    return{
+    jam : row[1],
 
-        no : nomor,
+    kelas : row[2],
 
-        hari : hari[d.getDay()],
+    mapel : row[3],
 
-        tanggal : `${tanggal} ${formData.bulan} ${formData.tahun}`,
+    kikd : row[4],
 
-        jam : row[1],
+    materi : row[5],
 
-        kelas : row[2],
+    hasil : row[6],
 
-        mapel : row[3],
+    vol : row[7],
 
-        kikd : row[4],
+    s : row[8],
 
-        materi : row[5],
+    i : row[9],
 
-        hasil : row[6],
+    a : row[10],
 
-        vol : row[7],
+    ket : row[11]
 
-        s : row[8],
-
-        i : row[9],
-
-        a : row[10],
-
-        ket : row[11]
-
-    };
-
+};
+    
 }
 //----------------------------------------------------
 // DRAW SATU BARIS TABEL
