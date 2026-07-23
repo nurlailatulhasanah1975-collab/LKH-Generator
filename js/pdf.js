@@ -677,29 +677,28 @@ function drawTableRow(doc, row, y){
     doc.setFont("helvetica","normal");
     doc.setFontSize(8);
 
-    // No
-    doc.text(
-        String(row[0] || ""),
-        no.center,
-        y,
-        {align:"center"}
-    );
+// No
+doc.text(
+    String(row.no),
+    no.center,
+    y,
+    {align:"center"}
+);
 
-    // Hari / Tanggal
-    doc.text(
-        String(row[1] || ""),
-        tanggal.x + 1,
-        y
-    );
+// Hari / Tanggal
+doc.text(
+    String(row.tanggal),
+    tanggal.x + 1,
+    y
+);
 
-    // Jam
-    doc.text(
-        String(row[2] || ""),
-        jam.center,
-        y,
-        {align:"center"}
-    );
-
+// Jam
+doc.text(
+    String(row.jam),
+    jam.center,
+    y,
+    {align:"center"}
+);
 }
     //MODE LAMA
     
@@ -707,7 +706,13 @@ function drawTableRow(doc, row, y){
 
         let row = sheet[r];
 
-        drawTableRow(doc, row, y);
+        const reportRow = buildReportRow(
+    row,
+    r + 1,
+    formData
+);
+
+drawTableRow(doc, reportRow, y);
 
         y += 5;
 
