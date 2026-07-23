@@ -599,6 +599,25 @@ function buildColumns(table){
     });
 
 }
+
+//----------------------------------------------------
+// MENGAMBIL SHEET BERDASARKAN INDEX
+//----------------------------------------------------
+
+function getSheetByIndex(workbook, index){
+
+    const sheetName = workbook.SheetNames[index];
+
+    return XLSX.utils.sheet_to_json(
+        workbook.Sheets[sheetName],
+        {
+            header: 1,
+            defval: ""
+        }
+    );
+
+}
+    
     
 //----------------------------------------------------
 // DATA EXCEL
