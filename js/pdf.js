@@ -629,57 +629,33 @@ let y = TABLE.y + TABLE.headerHeight;
 
 function buildReportRow(row, nomor, formData){
 
+    const tgl = parseInt(row[0], 10);
+
+    const namaBulan = [
+        "Januari","Februari","Maret","April","Mei","Juni",
+        "Juli","Agustus","September","Oktober","November","Desember"
+    ];
+
+    const bulan = namaBulan.indexOf(formData.bulan);
+
+    const tanggalObj = new Date(
+        Number(formData.tahun),
+        bulan,
+        tgl
+    );
+
+    const namaHari = [
+        "Minggu","Senin","Selasa","Rabu",
+        "Kamis","Jumat","Sabtu"
+    ];
+
     return {
 
         no : nomor,
 
-        const tgl = parseInt(row[0], 10);
+        hari : namaHari[tanggalObj.getDay()],
 
-const namaBulan = [
-    "Januari","Februari","Maret","April","Mei","Juni",
-    "Juli","Agustus","September","Oktober","November","Desember"
-];
-
-const bulan = namaBulan.indexOf(formData.bulan);
-
-const tanggalObj = new Date(formData.tahun, bulan, tgl);
-
-const namaHari = [
-    "Minggu","Senin","Selasa","Rabu",
-    "Kamis","Jumat","Sabtu"
-];
-
-return {
-
-    no : nomor,
-
-    hari : namaHari[tanggalObj.getDay()],
-
-    tanggal : `${tgl} ${formData.bulan} ${formData.tahun}`,
-
-    jam : row[1],
-
-    kelas : row[2],
-
-    mapel : row[3],
-
-    kikd : row[4],
-
-    materi : row[5],
-
-    hasil : row[6],
-
-    vol : row[7],
-
-    s : row[8],
-
-    i : row[9],
-
-    a : row[10],
-
-    ket : row[11]
-
-};      
+        tanggal : `${tgl} ${formData.bulan} ${formData.tahun}`,
 
         jam : row[1],
 
@@ -705,8 +681,7 @@ return {
 
     };
 
-}
-    
+}    
 //----------------------------------------------------
 // DRAW SATU BARIS TABEL
 //----------------------------------------------------
