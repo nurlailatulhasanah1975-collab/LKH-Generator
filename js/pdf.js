@@ -614,7 +614,16 @@ console.table(sheet);
     
 // Posisi awal mengikuti TABLE Engine
 let y = TABLE.y + TABLE.headerHeight;
-    
+
+    doc.setFont("helvetica","bold");
+
+    doc.text("DATA DARI EXCEL",15,y);
+
+    doc.setFont("helvetica","normal");
+
+    y += 8;
+
+//----------------------------------------------------    
   //----------------------------------------------------
 // MEMBANGUN DATA LAPORAN DARI DATA EXCEL
 //----------------------------------------------------
