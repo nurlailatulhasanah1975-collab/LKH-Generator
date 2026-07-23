@@ -629,33 +629,13 @@ let y = TABLE.y + TABLE.headerHeight;
 
 function buildReportRow(row, nomor, formData){
 
-    const tgl = parseInt(row[0], 10);
-
-    const namaBulan = [
-        "Januari","Februari","Maret","April","Mei","Juni",
-        "Juli","Agustus","September","Oktober","November","Desember"
-    ];
-
-    const bulan = namaBulan.indexOf(formData.bulan);
-
-    const tanggalObj = new Date(
-        Number(formData.tahun),
-        bulan,
-        tgl
-    );
-
-    const namaHari = [
-        "Minggu","Senin","Selasa","Rabu",
-        "Kamis","Jumat","Sabtu"
-    ];
-
     return {
 
         no : nomor,
 
-        hari : namaHari[tanggalObj.getDay()],
+        hari : "",
 
-        tanggal : `${tgl} ${formData.bulan} ${formData.tahun}`,
+        tanggal : row[0],
 
         jam : row[1],
 
@@ -681,7 +661,7 @@ function buildReportRow(row, nomor, formData){
 
     };
 
-}    
+}
 //----------------------------------------------------
 // DRAW SATU BARIS TABEL
 //----------------------------------------------------
