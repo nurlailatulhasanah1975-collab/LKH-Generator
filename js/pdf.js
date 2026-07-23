@@ -629,13 +629,46 @@ let y = TABLE.y + TABLE.headerHeight;
 
 function buildReportRow(row, nomor, formData){
 
-    return {
+    const tanggal = Number(row[0]);
+
+    const bulanMap = {
+        Januari:0,
+        Februari:1,
+        Maret:2,
+        April:3,
+        Mei:4,
+        Juni:5,
+        Juli:6,
+        Agustus:7,
+        September:8,
+        Oktober:9,
+        November:10,
+        Desember:11
+    };
+
+    const d = new Date(
+        Number(formData.tahun),
+        bulanMap[formData.bulan],
+        tanggal
+    );
+
+    const hari = [
+        "Minggu",
+        "Senin",
+        "Selasa",
+        "Rabu",
+        "Kamis",
+        "Jumat",
+        "Sabtu"
+    ];
+
+    return{
 
         no : nomor,
 
-        hari : "",
+        hari : hari[d.getDay()],
 
-        tanggal : row[0],
+        tanggal : `${tanggal} ${formData.bulan} ${formData.tahun}`,
 
         jam : row[1],
 
@@ -704,9 +737,8 @@ doc.text(
     {align:"center"}
 );
 }
-    //MODE LAMA
     
-    for(let r=0;r<sheet.length;r++){
+    for(let r = 1; r < sheet.length; r++){
 
         let row = sheet[r];
 
