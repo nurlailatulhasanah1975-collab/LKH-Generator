@@ -631,6 +631,20 @@ function buildReportRow(row, nomor, formData){
 
     const tanggal = Number(row[0]);
 
+return {
+
+    no : nomor,
+
+    hari : getNamaHari(
+        tanggal,
+        formData.bulan,
+        formData.tahun
+    ),
+
+    tanggal : `${tanggal} ${formData.bulan} ${formData.tahun}`,
+    
+    const tanggal = Number(row[0]);
+
     const bulanMap = {
         Januari:0,
         Februari:1,
@@ -741,7 +755,41 @@ doc.text(
     for(let r = 1; r < sheet.length; r++){
 
         let row = sheet[r];
+function getNamaHari(tanggal, bulan, tahun){
 
+    const bulanMap = {
+        Januari:0,
+        Februari:1,
+        Maret:2,
+        April:3,
+        Mei:4,
+        Juni:5,
+        Juli:6,
+        Agustus:7,
+        September:8,
+        Oktober:9,
+        November:10,
+        Desember:11
+    };
+
+    const hari = [
+        "Minggu",
+        "Senin",
+        "Selasa",
+        "Rabu",
+        "Kamis",
+        "Jumat",
+        "Sabtu"
+    ];
+
+    const d = new Date(
+        Number(tahun),
+        bulanMap[bulan],
+        Number(tanggal)
+    );
+
+    return hari[d.getDay()];
+}
         const reportRow = buildReportRow(
     row,
     r + 1,
