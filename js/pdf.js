@@ -623,101 +623,10 @@ let y = TABLE.y + TABLE.headerHeight;
 
     y += 8;
 
-//----------------------------------------------------    
-  //----------------------------------------------------
-// MEMBANGUN DATA LAPORAN DARI DATA EXCEL
+//----------------------------------------------------
+// NAMA HARI
 //----------------------------------------------------
 
-function buildReportRow(row, nomor, formData){
-
-    const tanggal = Number(row[0]);
-
-    return {
-
-        no : nomor,
-
-        hari : getNamaHari(
-            tanggal,
-            formData.bulan,
-            formData.tahun
-        ),
-
-        tanggal : `${tanggal} ${formData.bulan} ${formData.tahun}`,
-
-        jam : row[1] ?? "",
-
-        kelas : row[2] ?? "",
-
-        mapel : row[3] ?? "",
-
-        kikd : row[4] ?? "",
-
-        materi : row[5] ?? "",
-
-        hasil : row[6] ?? "",
-
-        vol : row[7] ?? "",
-
-        s : row[8] ?? "",
-
-        i : row[9] ?? "",
-
-        a : row[10] ?? "",
-
-        ket : row[11] ?? ""
-
-    };
-
-} 
-//----------------------------------------------------
-// DRAW SATU BARIS TABEL
-//----------------------------------------------------
-
-function drawTableRow(doc, row, y){
-
-    const no = getColumn("no");
-    const tanggal = getColumn("tanggal");
-    const jam = getColumn("jam");
-
-    doc.setFont("helvetica","normal");
-    doc.setFontSize(8);
-
-    // Nomor
-    doc.text(
-        String(row.no),
-        no.center,
-        y,
-        { align:"center" }
-    );
-
-    // Hari
-    doc.text(
-        String(row.hari),
-        tanggal.x + 1,
-        y - 1.5
-    );
-
-    // Tanggal
-    doc.text(
-        String(row.tanggal),
-        tanggal.x + 1,
-        y + 2
-    );
-
-    // Jam
-    doc.text(
-        String(row.jam),
-        jam.center,
-        y,
-        { align:"center" }
-    );
-
-}
-    
-    for(let r = 1; r < sheet.length; r++){
-
-        let row = sheet[r];
-        
 function getNamaHari(tanggal, bulan, tahun){
 
     const bulanMap = {
@@ -754,24 +663,141 @@ function getNamaHari(tanggal, bulan, tahun){
     return namaHari[d.getDay()];
 
 }
-        
-        const reportRow = buildReportRow(
-    row,
-    r + 1,
-    formData
-);
 
-drawTableRow(doc, reportRow, y);
+//----------------------------------------------------
+// MEMBANGUN DATA LAPORAN
+//----------------------------------------------------
 
-        y += 5;
+function buildReportRow(row, nomor, formData){
 
-        if(y>190){
+    const tanggal = Number(row[0]);
 
-            doc.addPage("a4","landscape");
+    return{
 
-            y=20;
+        no : nomor,
+
+        hari : getNamaHari(
+            tanggal,
+            formData.bulan,
+            formData.tahun
+        ),
+
+        tanggal : `${tanggal} ${formData.bulan} ${formData.tahun}`,
+
+        jam : row[1] || "",
+
+        kelas : row[2] || "",
+
+        mapel : row[3] || "",
+
+        kikd : row[4] || "",
+
+        materi : row[5] || "",
+
+        hasil : row[6] || "",
+
+        vol : row[7] || "",
+
+        s : row[8] || "",
+
+        i : row[9] || "",
+
+        a : row[10] || "",
+
+        ket : row[11] || ""
+
+    };
+
+}
+
+//----------------------------------------------------
+// GAMBAR SATU BARIS
+//----------------------------------------------------
+
+function drawTableRow(doc,row,y){
+
+    const no = getColumn("no");
+    const tanggal = getColumn("tanggal");
+    const jam = getColumn("jam");
+
+    doc.setFont("helvetica","normal");
+    doc.setFontSize(8);
+
+    // nomor
+
+    doc.text(
+        String(row.no),
+        no.center,
+        y,
+        {align:"center"}
+    );
+
+    // hari
+
+    doc.text(
+        row.hari,
+        tanggal.x + 1,
+        y - 1.5
+    );
+
+    // tanggal
+
+    doc.text(
+        row.tanggal,
+        tanggal.x + 1,
+        y + 2
+    );
+
+    // jam
+
+    doc.text(
+        String(row.jam),
+        jam.center,
+        y,
+        {align:"center"}
+    );
+
+}
+
+//----------------------------------------------------
+// CETAK DATA EXCEL
+//----------------------------------------------------
+
+drawTableHeader(doc,TABLE,COL);
+
+let sheet = getSheetByIndex(excelData,0);
+
+let y = TABLE.y + TABLE.headerHeight + 6;
+
+for(let r=1; r<sheet.length; r++){
+
+    const reportRow = buildReportRow(
+        sheet[r],
+        r,
+        formData
+    );
+
+    drawTableRow(
+        doc,
+        reportRow,
+        y
+    );
+
+    y += TABLE.rowHeight;
+
+    if(y > 190){
+
+        doc.addPage("a4","landscape");
+
+        y = 20;
+
+        drawTableHeader(doc,TABLE,COL);
+
+        y = TABLE.y + TABLE.headerHeight + 6;
 
     }
+
+}
     //----------------------------------------------------
     // PENGESAHAN
     //----------------------------------------------------
