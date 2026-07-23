@@ -614,7 +614,7 @@ console.table(sheet);
     
 // Posisi awal mengikuti TABLE Engine
 let y = TABLE.y + TABLE.headerHeight;
-    
+
     doc.setFont("helvetica","bold");
 
     doc.text("DATA DARI EXCEL",15,y);
@@ -623,47 +623,52 @@ let y = TABLE.y + TABLE.headerHeight;
 
     y += 8;
 
-//----------------------------------------------------
+//----------------------------------------------------    
+  //----------------------------------------------------
 // MEMBANGUN DATA LAPORAN DARI DATA EXCEL
 //----------------------------------------------------
 
 function buildReportRow(row, nomor, formData){
 
+    const tanggal = Number(row[0]);
+
     return {
 
         no : nomor,
 
-        // sementara
-        hari : "",
+        hari : getNamaHari(
+            tanggal,
+            formData.bulan,
+            formData.tahun
+        ),
 
-        tanggal : row[0],
+        tanggal : `${tanggal} ${formData.bulan} ${formData.tahun}`,
 
-        jam : row[1],
+        jam : row[1] ?? "",
 
-        kelas : row[2],
+        kelas : row[2] ?? "",
 
-        mapel : row[3],
+        mapel : row[3] ?? "",
 
-        kikd : row[4],
+        kikd : row[4] ?? "",
 
-        materi : row[5],
+        materi : row[5] ?? "",
 
-        hasil : row[6],
+        hasil : row[6] ?? "",
 
-        vol : row[7],
+        vol : row[7] ?? "",
 
-        s : row[8],
+        s : row[8] ?? "",
 
-        i : row[9],
+        i : row[9] ?? "",
 
-        a : row[10],
+        a : row[10] ?? "",
 
-        ket : row[11]
+        ket : row[11] ?? ""
 
     };
 
-}
-    
+} 
 //----------------------------------------------------
 // DRAW SATU BARIS TABEL
 //----------------------------------------------------
@@ -677,35 +682,79 @@ function drawTableRow(doc, row, y){
     doc.setFont("helvetica","normal");
     doc.setFontSize(8);
 
-// No
-doc.text(
-    String(row.no),
-    no.center,
-    y,
-    {align:"center"}
-);
+    // Nomor
+    doc.text(
+        String(row.no),
+        no.center,
+        y,
+        { align:"center" }
+    );
 
-// Hari / Tanggal
-doc.text(
-    String(row.tanggal),
-    tanggal.x + 1,
-    y
-);
+    // Hari
+    doc.text(
+        String(row.hari),
+        tanggal.x + 1,
+        y - 1.5
+    );
 
-// Jam
-doc.text(
-    String(row.jam),
-    jam.center,
-    y,
-    {align:"center"}
-);
+    // Tanggal
+    doc.text(
+        String(row.tanggal),
+        tanggal.x + 1,
+        y + 2
+    );
+
+    // Jam
+    doc.text(
+        String(row.jam),
+        jam.center,
+        y,
+        { align:"center" }
+    );
+
 }
-    //MODE LAMA
     
-    for(let r=0;r<sheet.length;r++){
+    for(let r = 1; r < sheet.length; r++){
 
         let row = sheet[r];
+        
+function getNamaHari(tanggal, bulan, tahun){
 
+    const bulanMap = {
+        Januari:0,
+        Februari:1,
+        Maret:2,
+        April:3,
+        Mei:4,
+        Juni:5,
+        Juli:6,
+        Agustus:7,
+        September:8,
+        Oktober:9,
+        November:10,
+        Desember:11
+    };
+
+    const namaHari = [
+        "Minggu",
+        "Senin",
+        "Selasa",
+        "Rabu",
+        "Kamis",
+        "Jumat",
+        "Sabtu"
+    ];
+
+    const d = new Date(
+        Number(tahun),
+        bulanMap[bulan],
+        Number(tanggal)
+    );
+
+    return namaHari[d.getDay()];
+
+}
+        
         const reportRow = buildReportRow(
     row,
     r + 1,
@@ -722,12 +771,7 @@ drawTableRow(doc, reportRow, y);
 
             y=20;
 
-        }
-
     }
-
-
-
     //----------------------------------------------------
     // PENGESAHAN
     //----------------------------------------------------
