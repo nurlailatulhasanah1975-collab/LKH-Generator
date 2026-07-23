@@ -504,10 +504,6 @@ function getColumn(key){
 // DRAW TABLE HEADER
 //----------------------------------------------------
 
-//----------------------------------------------------
-// DRAW TABLE HEADER
-//----------------------------------------------------
-
 function drawTableHeader(doc, table, columns){
 
     const y = table.y;
