@@ -612,9 +612,9 @@ drawTableHeader(doc, TABLE, COL);
     
 let sheet = getSheetByIndex(excelData,0);
 
-console.table(sheet);
+    alert("Sheet terbaca");
 
-    
+console.table(sheet);
     
 // Posisi awal mengikuti TABLE Engine
 let y = TABLE.y + TABLE.headerHeight;
