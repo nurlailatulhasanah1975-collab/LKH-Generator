@@ -611,7 +611,7 @@ function buildColumns(table){
 drawTableHeader(doc, TABLE, COL);
     
 let sheet = getSheetByIndex(excelData,0);
-
+    
 // Posisi awal mengikuti TABLE Engine
 let y = TABLE.y + TABLE.headerHeight;
     
