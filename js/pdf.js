@@ -5,7 +5,7 @@
 // =====================================================
 
 async function buatPDF(formData, excelData) {
-alert("PDF START");
+
     const { jsPDF } = window.jspdf;
 
     const doc = new jsPDF({
@@ -693,10 +693,6 @@ drawTableHeader(doc, TABLE, COL);
     
 let sheet = getSheetByIndex(excelData,0);
     
-console.log(sheet[0]);
-console.log(sheet[1]);
-console.log(sheet[2]);
-    
 // Posisi awal mengikuti TABLE Engine
 let y = TABLE.y + TABLE.headerHeight;
     
@@ -792,8 +788,6 @@ for(let r = 1; r < sheet.length; r++){
     r,
     formData
 );
-
-console.log(reportRow);
 
 drawTableRow(
     doc,
