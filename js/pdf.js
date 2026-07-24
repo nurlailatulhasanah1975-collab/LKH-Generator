@@ -785,11 +785,17 @@ let tanggalAktif = 0;
     
 for(let r = 1; r < sheet.length; r++){
 
+    const row = sheet[r];
+
+    if(row[0] !== "" && row[0] != null){
+        tanggalAktif = Number(row[0]);
+    }
+
     const reportRow = buildReportRow(
-    sheet[r],
-    r,
-    formData
-);
+        row,
+        r,
+        formData
+    );
 
 drawTableRow(
     doc,
