@@ -660,37 +660,40 @@ function buildReportRow(row, nomor, formData){
 
 function drawTableRow(doc, row, y){
 
-    const no = getColumn("no");
-    const tanggal = getColumn("tanggal");
-    const jam = getColumn("jam");
-
     doc.setFont("helvetica","normal");
     doc.setFontSize(8);
 
-// No
-doc.text(
-    String(row.no),
-    no.center,
-    y,
-    {align:"center"}
-);
+    // No
+    doc.text(
+        String(row.no),
+        getColumn("no").center,
+        y,
+        { align:"center" }
+    );
 
-// Hari / Tanggal
-doc.text(
-    String(row.tanggal),
-    tanggal.x + 1,
-    y
-);
+    // Hari
+    doc.text(
+        String(row.hari),
+        getColumn("tanggal").x + 1,
+        y - 1.5
+    );
 
-// Jam
-doc.text(
-    String(row.jam),
-    jam.center,
-    y,
-    {align:"center"}
-);
+    // Tanggal
+    doc.text(
+        String(row.tanggal),
+        getColumn("tanggal").x + 1,
+        y + 2
+    );
+
+    // Jam
+    doc.text(
+        String(row.jam),
+        getColumn("jam").center,
+        y,
+        { align:"center" }
+    );
+
 }
-
 //----------------------------------------------------
 // CETAK DATA EXCEL
 //----------------------------------------------------
