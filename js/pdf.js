@@ -501,9 +501,9 @@ function getColumn(key){
 
 }
 
-function buildReportRow(row, nomor, formData){
+function buildReportRow(row, nomor, tanggalAktif, formData){
 
-    const tanggal = Number(row[0]);
+    const tanggal = tanggalAktif;
 
     return {
 
@@ -792,10 +792,11 @@ for(let r = 1; r < sheet.length; r++){
     }
 
     const reportRow = buildReportRow(
-        row,
-        r,
-        formData
-    );
+    row,
+    r,
+    tanggalAktif,
+    formData
+);
 
 drawTableRow(
     doc,
