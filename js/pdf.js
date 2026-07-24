@@ -501,21 +501,19 @@ function getColumn(key){
 
 }
 
-function buildReportRow(row, nomor, formData){
-
-    const tanggal = Number(row[0]);
+function buildReportRow(row, nomor, tanggalAktif, formData){
 
     return {
 
         no : nomor,
 
         hari : getNamaHari(
-            tanggal,
+            tanggalAktif,
             formData.bulan,
             formData.tahun
         ),
 
-        tanggal : `${tanggal} ${formData.bulan} ${formData.tahun}`,
+        tanggal : `${tanggalAktif} ${formData.bulan} ${formData.tahun}`,
 
         jam : row[1] || "",
 
