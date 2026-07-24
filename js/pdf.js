@@ -697,33 +697,33 @@ function drawTableRow(doc, row, y){
 //----------------------------------------------------
 // CETAK DATA EXCEL
 //----------------------------------------------------
-    
-    for(let r=0;r<sheet.length;r++){
 
-        let row = sheet[r];
+for(let r = 1; r < sheet.length; r++){
 
-        const reportRow = buildReportRow(
-    row,
-    r + 1,
-    formData
-);
+    const reportRow = buildReportRow(
+        sheet[r],
+        r,
+        formData
+    );
 
-drawTableRow(doc, reportRow, y);
+    drawTableRow(
+        doc,
+        reportRow,
+        y
+    );
 
-        y += 5;
+    y += 5;
 
-        if(y>190){
+    if(y > 190){
 
-            doc.addPage("a4","landscape");
+        doc.addPage("a4","landscape");
 
-            y=20;
-
-        }
+        y = 20;
 
     }
 
-
-
+}
+    
     //----------------------------------------------------
     // PENGESAHAN
     //----------------------------------------------------
