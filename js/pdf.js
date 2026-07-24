@@ -71,6 +71,7 @@ async function buatPDF(formData, excelData) {
 //----------------------------------------------------
 // HEADER
 //----------------------------------------------------
+
 //----------------------------------------------------
 // KOP SURAT
 //----------------------------------------------------
@@ -608,19 +609,10 @@ drawTableHeader(doc, TABLE, COL);
     
 let sheet = getSheetByIndex(excelData,0);
 
-console.table(sheet);
     
 // Posisi awal mengikuti TABLE Engine
 let y = TABLE.y + TABLE.headerHeight;
     
-    doc.setFont("helvetica","bold");
-
-    doc.text("DATA DARI EXCEL",15,y);
-
-    doc.setFont("helvetica","normal");
-
-    y += 8;
-
 //----------------------------------------------------
 // MEMBANGUN DATA LAPORAN DARI DATA EXCEL
 //----------------------------------------------------
@@ -698,7 +690,10 @@ doc.text(
     {align:"center"}
 );
 }
-    //MODE LAMA
+
+//----------------------------------------------------
+// CETAK DATA EXCEL
+//----------------------------------------------------
     
     for(let r=0;r<sheet.length;r++){
 
