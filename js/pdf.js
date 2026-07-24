@@ -4,7 +4,7 @@
 // Library : jsPDF
 // =====================================================
 
-async function buatPDF_TEST(formData, excelData) {
+async function buatPDF(formData, excelData) {
 alert("PDF START");
     const { jsPDF } = window.jspdf;
 
