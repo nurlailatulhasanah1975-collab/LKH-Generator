@@ -500,6 +500,90 @@ function getColumn(key){
     return COL.find(col => col.key === key);
 
 }
+
+function buildReportRow(row, nomor, formData){
+
+    const tanggal = Number(row[0]);
+
+    return {
+
+        no : nomor,
+
+        hari : getNamaHari(
+            tanggal,
+            formData.bulan,
+            formData.tahun
+        ),
+
+        tanggal : `${tanggal} ${formData.bulan} ${formData.tahun}`,
+
+        jam : row[1] || "",
+
+        kelas : row[2] || "",
+
+        mapel : row[3] || "",
+
+        kikd : row[4] || "",
+
+        materi : row[5] || "",
+
+        hasil : row[6] || "",
+
+        vol : row[7] || "",
+
+        s : row[8] || "",
+
+        i : row[9] || "",
+
+        a : row[10] || "",
+
+        ket : row[11] || ""
+
+    };
+
+}
+
+
+//----------------------------------------------------
+// MENCARI NAMA HARI
+//----------------------------------------------------
+
+function getNamaHari(tanggal, bulan, tahun){
+
+    const bulanMap = {
+        Januari:0,
+        Februari:1,
+        Maret:2,
+        April:3,
+        Mei:4,
+        Juni:5,
+        Juli:6,
+        Agustus:7,
+        September:8,
+        Oktober:9,
+        November:10,
+        Desember:11
+    };
+
+    const hari = [
+        "Minggu",
+        "Senin",
+        "Selasa",
+        "Rabu",
+        "Kamis",
+        "Jumat",
+        "Sabtu"
+    ];
+
+    const d = new Date(
+        Number(tahun),
+        bulanMap[bulan],
+        Number(tanggal)
+    );
+
+    return hari[d.getDay()];
+
+}
     
 //----------------------------------------------------
 // DRAW TABLE HEADER
