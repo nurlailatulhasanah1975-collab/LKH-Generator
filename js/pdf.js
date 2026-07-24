@@ -10,7 +10,7 @@ async function buatPDF(formData, excelData) {
 
     const doc = new jsPDF({
         orientation: "landscape",
-        unit: "mm",F
+        unit: "mm",
         format: "a4"
     });
 
