@@ -501,19 +501,21 @@ function getColumn(key){
 
 }
 
-function buildReportRow(row, nomor, tanggalAktif, formData){
+function buildReportRow(row, nomor, formData){
+
+    const tanggal = Number(row[0]);
 
     return {
 
         no : nomor,
 
         hari : getNamaHari(
-            tanggalAktif,
+            tanggal,
             formData.bulan,
             formData.tahun
         ),
 
-        tanggal : `${tanggalAktif} ${formData.bulan} ${formData.tahun}`,
+        tanggal : `${tanggal} ${formData.bulan} ${formData.tahun}`,
 
         jam : row[1] || "",
 
@@ -779,42 +781,27 @@ function drawTableRow(doc, row, y){
 // CETAK DATA EXCEL
 //----------------------------------------------------
 
-let tanggalAktif = 0;
-let nomorHari = 0;
-
 for(let r = 1; r < sheet.length; r++){
 
-    const row = sheet[r];
-
-    if(row[0] !== "" && row[0] != null){
-
-        tanggalAktif = Number(row[0]);
-        nomorHari++;
-
-    }
-
     const reportRow = buildReportRow(
-        row,
-        nomorHari,
-        tanggalAktif,
-        formData
-    );
+    sheet[r],
+    r,
+    formData
+);
 
-    drawTableRow(
-        doc,
-        reportRow,
-        y
-    );
+drawTableRow(
+    doc,
+    reportRow,
+    y
+);
 
-    y += TABLE.rowHeight;
+    y += 5;
 
     if(y > 190){
 
         doc.addPage("a4","landscape");
 
-        drawTableHeader(doc, TABLE, COL);
-
-        y = TABLE.y + TABLE.headerHeight + 6;
+        y = 20;
 
     }
 
