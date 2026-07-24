@@ -608,8 +608,6 @@ drawTableHeader(doc, TABLE, COL);
     
 let sheet = getSheetByIndex(excelData,0);
 
-    alert("Sheet terbaca");
-
 console.table(sheet);
     
 // Posisi awal mengikuti TABLE Engine
