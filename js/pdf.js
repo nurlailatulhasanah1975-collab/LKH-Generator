@@ -788,16 +788,18 @@ function drawTableRow(doc, row, y){
 for(let r = 1; r < sheet.length; r++){
 
     const reportRow = buildReportRow(
-        sheet[r],
-        r,
-        formData
-    );
+    sheet[r],
+    r,
+    formData
+);
 
-    drawTableRow(
-        doc,
-        reportRow,
-        y
-    );
+console.log(reportRow);
+
+drawTableRow(
+    doc,
+    reportRow,
+    y
+);
 
     y += 5;
 
