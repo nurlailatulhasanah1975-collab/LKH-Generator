@@ -10,7 +10,7 @@ async function buatPDF(formData, excelData) {
 
     const doc = new jsPDF({
         orientation: "landscape",
-        unit: "mm",
+        unit: "mm",F
         format: "a4"
     });
 
@@ -779,27 +779,42 @@ function drawTableRow(doc, row, y){
 // CETAK DATA EXCEL
 //----------------------------------------------------
 
+let tanggalAktif = 0;
+let nomorHari = 0;
+
 for(let r = 1; r < sheet.length; r++){
 
+    const row = sheet[r];
+
+    if(row[0] !== "" && row[0] != null){
+
+        tanggalAktif = Number(row[0]);
+        nomorHari++;
+
+    }
+
     const reportRow = buildReportRow(
-    sheet[r],
-    r,
-    formData
-);
+        row,
+        nomorHari,
+        tanggalAktif,
+        formData
+    );
 
-drawTableRow(
-    doc,
-    reportRow,
-    y
-);
+    drawTableRow(
+        doc,
+        reportRow,
+        y
+    );
 
-    y += 5;
+    y += TABLE.rowHeight;
 
     if(y > 190){
 
         doc.addPage("a4","landscape");
 
-        y = 20;
+        drawTableHeader(doc, TABLE, COL);
+
+        y = TABLE.y + TABLE.headerHeight + 6;
 
     }
 
