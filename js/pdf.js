@@ -512,30 +512,29 @@ if(row.tanggalBaru){
 doc.text(
     String(row.no),
     getColumn("no").center,
-    y + TEXT.noY,
+    y,
     { align:"center" }
-
 );
 
 // Hari
 doc.text(
     String(row.hari),
     getColumn("tanggal").x + 1,
-    y + TEXT.hariY
+    y + 1
 );
 
 // Tanggal
 doc.text(
     String(row.tanggal),
     getColumn("tanggal").x + 1,
-    y + TEXT.tanggalY
+    y + 3
 );
 
 // Jam
 doc.text(
     String(row.jam),
     getColumn("jam").center,
-    y + TEXT.jamY,
+    y,
     { align:"center" }
 );
     
