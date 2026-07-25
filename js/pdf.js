@@ -739,6 +739,81 @@ function drawTableRow(doc, row, y){
         { align:"center" }
     );
 
+        // Kelas
+    doc.text(
+        String(row.kelas || ""),
+        getColumn("kelas").x + 1,
+        y
+    );
+    
+    // Mata Pelajaran
+    doc.text(
+        String(row.mapel || ""),
+        getColumn("mapel").x + 1,
+        y
+    );
+    
+    // KI/KD
+    doc.text(
+        String(row.kikd || ""),
+        getColumn("kikd").center,
+        y,
+        { align:"center" }
+    );
+    
+    // Materi
+    doc.text(
+        String(row.materi || ""),
+        getColumn("materi").x + 1,
+        y
+    );
+    
+    // Hasil
+    doc.text(
+        String(row.hasil || ""),
+        getColumn("hasil").x + 1,
+        y
+    );
+    
+    // Vol
+    doc.text(
+        String(row.vol || ""),
+        getColumn("vol").center,
+        y,
+        { align:"center" }
+    );
+    
+    // S
+    doc.text(
+        String(row.s || ""),
+        getColumn("s").center,
+        y,
+        { align:"center" }
+    );
+    
+    // I
+    doc.text(
+        String(row.i || ""),
+        getColumn("i").center,
+        y,
+        { align:"center" }
+    );
+    
+    // A
+    doc.text(
+        String(row.a || ""),
+        getColumn("a").center,
+        y,
+        { align:"center" }
+    );
+    
+    // Ket
+    doc.text(
+        String(row.ket || ""),
+        getColumn("ket").x + 1,
+        y
+);
+
 }
 //----------------------------------------------------
 // CETAK DATA EXCEL
