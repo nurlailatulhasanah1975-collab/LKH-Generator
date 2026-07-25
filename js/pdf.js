@@ -808,10 +808,44 @@ function drawTableRow(doc, row, y){
     );
     
     // Ket
-    doc.text(
-        String(row.ket || ""),
-        getColumn("ket").x + 1,
-        y
+doc.text(
+    String(row.ket || ""),
+    getColumn("ket").x + 1,
+    y
+);
+
+    console.log("draw line", y);
+
+const halfRow = TABLE.rowHeight / 2;
+
+doc.setLineWidth(0.2);
+
+// Garis vertikal
+COL.forEach(col => {
+
+    doc.line(
+        col.x,
+        y - halfRow,
+        col.x,
+        y + halfRow
+    );
+
+});
+
+// Garis kanan tabel
+doc.line(
+    TABLE.x + TABLE.width,
+    y - halfRow,
+    TABLE.x + TABLE.width,
+    y + halfRow
+);
+
+// Garis bawah
+doc.line(
+    TABLE.x,
+    y + halfRow,
+    TABLE.x + TABLE.width,
+    y + halfRow
 );
 
 }
