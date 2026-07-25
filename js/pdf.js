@@ -717,7 +717,7 @@ function drawTableRow(doc, row, y){
     doc.text(
         String(row.hari),
         getColumn("tanggal").x + 1,
-        y - 1.5
+        y + 2
     );
 
     // Tanggal
