@@ -763,7 +763,7 @@ drawTableRow(
     y
 );
 
-    y += 5;
+    y += 8;
 
     if(y > 190){
 
