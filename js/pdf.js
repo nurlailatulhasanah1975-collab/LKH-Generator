@@ -746,33 +746,34 @@ function drawTableRow(doc, row, y){
 
 for(let r = 1; r < sheet.length; r++){
 
-    const reportRow = buildReportRow(
-    row,
-    r,
-    tanggalAktif,
-    formData
-);
-    
-console.log(reportRow);
-    
-drawTableRow(
-    doc,
-    reportRow,
-    y
-);
+    const row = sheet[r];
 
-    y += 5;
-
-    if(y > 190){
-
-        doc.addPage("a4","landscape");
-
-        y = 20;
-
+    if(row[0] !== "" && row[0] != null){
+        tanggalAktif = Number(row[0]);
     }
 
+    const reportRow = buildReportRow(
+        row,
+        r,
+        tanggalAktif,
+        formData
+    );
+
+    console.log(reportRow);
+
+    drawTableRow(
+        doc,
+        reportRow,
+        y
+    );
+
+    y += 8;
+
+    if(y > 190){
+        ...
+    }
 }
-    
+       
     //----------------------------------------------------
     // PENGESAHAN
     //----------------------------------------------------
