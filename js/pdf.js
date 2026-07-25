@@ -789,6 +789,8 @@ for(let r = 1; r < sheet.length; r++){
     formData
 );
 
+console.log(reportRow);
+    
 drawTableRow(
     doc,
     reportRow,
