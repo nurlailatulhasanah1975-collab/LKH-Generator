@@ -694,7 +694,7 @@ drawTableHeader(doc, TABLE, COL);
 let sheet = getSheetByIndex(excelData,0);
     
 // Posisi awal mengikuti TABLE Engine
-let y = TABLE.y + TABLE.headerHeight + 5;
+let y = TABLE.y + TABLE.headerHeight + 3;
         
 //----------------------------------------------------
 // DRAW SATU BARIS TABEL
