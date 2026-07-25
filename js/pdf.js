@@ -744,6 +744,8 @@ function drawTableRow(doc, row, y){
 // CETAK DATA EXCEL
 //----------------------------------------------------
 
+let tanggalAktif = 0;
+
 for(let r = 1; r < sheet.length; r++){
 
     const row = sheet[r];
@@ -776,6 +778,9 @@ for(let r = 1; r < sheet.length; r++){
     y = 20;
 
 }
+
+}
+
        
     //----------------------------------------------------
     // PENGESAHAN
