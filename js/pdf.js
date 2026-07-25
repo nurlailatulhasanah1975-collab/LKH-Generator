@@ -501,7 +501,11 @@ function getColumn(key){
 
 }
 
-function buildReportRow(row, nomor, tanggalAktif, formData){
+//----------------------------------------------------
+// MEMBANGUN DATA LAPORAN DARI DATA EXCEL
+//----------------------------------------------------
+
+    function buildReportRow(row, nomor, tanggalAktif, formData){
 
     const tanggal = tanggalAktif;
 
@@ -695,48 +699,7 @@ let sheet = getSheetByIndex(excelData,0);
     
 // Posisi awal mengikuti TABLE Engine
 let y = TABLE.y + TABLE.headerHeight;
-    
-//----------------------------------------------------
-// MEMBANGUN DATA LAPORAN DARI DATA EXCEL
-//----------------------------------------------------
-
-function buildReportRow(row, nomor, formData){
-
-    return {
-
-        no : nomor,
-
-        // sementara
-        hari : "",
-
-        tanggal : row[0],
-
-        jam : row[1],
-
-        kelas : row[2],
-
-        mapel : row[3],
-
-        kikd : row[4],
-
-        materi : row[5],
-
-        hasil : row[6],
-
-        vol : row[7],
-
-        s : row[8],
-
-        i : row[9],
-
-        a : row[10],
-
-        ket : row[11]
-
-    };
-
-}
-    
+ 
 //----------------------------------------------------
 // DRAW SATU BARIS TABEL
 //----------------------------------------------------
