@@ -503,11 +503,16 @@ function getColumn(key){
 
 function buildReportRow(row, nomor, tanggalAktif, formData){
 
+    const tanggalBaru =
+        row[0] !== "" && row[0] != null;
+
     const tanggal = tanggalAktif;
 
     return {
 
         no : nomor,
+    
+        tanggalBaru : tanggalBaru,
 
         hari : getNamaHari(
             tanggal,
@@ -707,6 +712,8 @@ function drawTableRow(doc, row, y){
 
     const halfRow = TABLE.rowHeight / 2;
 
+    if(row.tanggalBaru){
+
     // No
     doc.text(
         String(row.no),
@@ -715,13 +722,13 @@ function drawTableRow(doc, row, y){
         { align:"center" }
     );
 
-        // Hari
+    // Hari
     doc.text(
         String(row.hari),
         getColumn("tanggal").x + 1,
-        y + 1    
+        y + 1
     );
-    
+
     // Tanggal
     doc.text(
         String(row.tanggal),
@@ -729,13 +736,15 @@ function drawTableRow(doc, row, y){
         y + 3
     );
 
-    // Jam
-    doc.text(
-        String(row.jam),
-        getColumn("jam").center,
-        y,
-        { align:"center" }
-    );
+}
+
+// Jam
+doc.text(
+    String(row.jam),
+    getColumn("jam").center,
+    y,
+    { align:"center" }
+);
     
     COL.forEach(col => {
     
@@ -770,21 +779,25 @@ doc.line(
 //----------------------------------------------------
 
 let tanggalAktif = 0;
-    
+let nomorHari = 0;
+
 for(let r = 1; r < sheet.length; r++){
 
     const row = sheet[r];
 
     if(row[0] !== "" && row[0] != null){
-        tanggalAktif = Number(row[0]);
-    }
 
-    const reportRow = buildReportRow(
-    row,
-    r,
-    tanggalAktif,
-    formData
-);
+    tanggalAktif = Number(row[0]);
+    nomorHari++;
+
+}
+
+      const reportRow = buildReportRow(
+        row,
+        nomorHari,
+        tanggalAktif,
+        formData
+    );
 
 drawTableRow(
     doc,
