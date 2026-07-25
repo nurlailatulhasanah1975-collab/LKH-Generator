@@ -718,41 +718,69 @@ function drawTableRow(doc, row, y){
     doc.text(
         String(row.no),
         getColumn("no").center,
-        y,
+        y + TEXT.noY,
         { align:"center" }
-    );
+);
 
     // Hari
     doc.text(
         String(row.hari),
         getColumn("tanggal").x + 1,
-        y + 1
+        y + TEXT.hariY
     );
 
     // Tanggal
     doc.text(
         String(row.tanggal),
         getColumn("tanggal").x + 1,
-        y + 3
+        y + TEXT.tanggalY
     );
 
-}
-
-// Jam
-doc.text(
-    String(row.jam),
-    getColumn("jam").center,
-    y,
-    { align:"center" }
-);
+    // Jam
+    doc.text(
+        String(row.jam),
+        getColumn("jam").center,
+        y + TEXT.jamY,
+        { align:"center" }
+    );
+        
+    // Kelas
+    doc.text(
+        String(row.kelas),
+        getColumn("kelas").center,
+        y,
+        { align:"center" }
+    );
     
-    COL.forEach(col => {
+    // Mata Pelajaran
+    doc.text(
+        String(row.mapel),
+        getColumn("mapel").x + 1,
+        y
+    );
     
-    doc.line(
-        col.x,
-        y - halfRow,
-        col.x,
-        y + halfRow
+    // KI/KD
+    doc.text(
+        String(row.kikd),
+        getColumn("kikd").center,
+        y,
+        { align:"center" }
+    );
+    
+    // Materi
+    doc.text(
+        String(row.materi),
+        getColumn("materi").x + 1,
+        y
+    );
+        
+        COL.forEach(col => {
+        
+        doc.line(
+            col.x,
+            y - halfRow,
+            col.x,
+            y + halfRow
     );
 
 });
