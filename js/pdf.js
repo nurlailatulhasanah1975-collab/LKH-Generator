@@ -784,11 +784,12 @@ function drawTableRow(doc, row, y){
 for(let r = 1; r < sheet.length; r++){
 
     const reportRow = buildReportRow(
-    sheet[r],
+    row,
     r,
+    tanggalAktif,
     formData
 );
-
+    
 console.log(reportRow);
     
 drawTableRow(
