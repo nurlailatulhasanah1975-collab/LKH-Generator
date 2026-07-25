@@ -728,14 +728,23 @@ function drawTableRow(doc, row, y){
     );
 
     // Jam
-    doc.text(
-        String(row.jam),
-        getColumn("jam").center,
-        y,
-        { align:"center" }
-    );
+doc.text(
+    String(row.jam),
+    getColumn("jam").center,
+    y,
+    { align:"center" }
+);
+
+// Garis bawah baris
+doc.line(
+    TABLE.x,
+    y + 4,
+    TABLE.x + TABLE.width,
+    y + 4
+);
 
 }
+
 //----------------------------------------------------
 // CETAK DATA EXCEL
 //----------------------------------------------------
