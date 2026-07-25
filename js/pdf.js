@@ -511,7 +511,13 @@ function getColumn(key){
 
     return {
 
-        no : nomor,
+       return {
+
+            no : nomor,
+        
+            tanggalBaru : row[0] !== "" && row[0] != null,
+
+    hari : getNamaHari(
 
         hari : getNamaHari(
             tanggal,
@@ -710,6 +716,8 @@ function drawTableRow(doc, row, y){
     doc.setFontSize(8);
 
     // No
+    if(row.tanggalBaru){
+
     doc.text(
         String(row.no),
         getColumn("no").center,
@@ -717,19 +725,28 @@ function drawTableRow(doc, row, y){
         { align:"center" }
     );
 
-    // Hari
+}
+
+    if(row.tanggalBaru){
+
     doc.text(
         String(row.hari),
         getColumn("tanggal").x + 1,
         y - 1.5
     );
 
+}
+
     // Tanggal
+    if(row.tanggalBaru){
+
     doc.text(
         String(row.tanggal),
         getColumn("tanggal").x + 1,
         y + 2
     );
+
+}
 
     // Jam
     doc.text(
