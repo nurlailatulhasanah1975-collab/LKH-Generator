@@ -728,11 +728,30 @@ function drawTableRow(doc, row, y){
     );
 
     // Jam
-doc.text(
-    String(row.jam),
-    getColumn("jam").center,
-    y,
-    { align:"center" }
+    doc.text(
+        String(row.jam),
+        getColumn("jam").center,
+        y,
+        { align:"center" }
+    );
+    
+    COL.forEach(col => {
+    
+        doc.line(
+            col.x,
+            y - 4,
+            col.x,
+            y + 4
+    );
+
+});
+
+// Garis kanan terakhir
+doc.line(
+    TABLE.x + TABLE.width,
+    y - 4,
+    TABLE.x + TABLE.width,
+    y + 4
 );
 
 // Garis bawah baris
@@ -744,7 +763,6 @@ doc.line(
 );
 
 }
-
 //----------------------------------------------------
 // CETAK DATA EXCEL
 //----------------------------------------------------
