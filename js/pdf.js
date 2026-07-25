@@ -713,18 +713,18 @@ function drawTableRow(doc, row, y){
         { align:"center" }
     );
 
-    // Hari
+        // Hari
     doc.text(
         String(row.hari),
         getColumn("tanggal").x + 1,
-        y + 2
+        y
     );
-
+    
     // Tanggal
     doc.text(
         String(row.tanggal),
         getColumn("tanggal").x + 1,
-        y + 2
+        y + 3
     );
 
     // Jam
