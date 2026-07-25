@@ -815,6 +815,8 @@ function drawTableRow(doc, row, y){
     );
     
     const halfRow = TABLE.rowHeight / 2;
+
+    doc.setLineWidth(0.2);
     
     // Garis vertikal
     COL.forEach(col => {
