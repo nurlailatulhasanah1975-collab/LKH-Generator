@@ -509,8 +509,6 @@ function getColumn(key){
 
     const tanggal = tanggalAktif;
 
-    return {
-
        return {
 
             no : nomor,
