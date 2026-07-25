@@ -452,7 +452,7 @@ const TABLE = {
     // ukuran dasar
     width: PAGE.width - MARGIN.left - MARGIN.right,
 
-    rowHeight: 7,
+    rowHeight: 8,
 
     headerHeight: 14,
 
@@ -705,6 +705,8 @@ function drawTableRow(doc, row, y){
     doc.setFont("helvetica","normal");
     doc.setFontSize(8);
 
+    const halfRow = TABLE.rowHeight / 2;
+
     // No
     doc.text(
         String(row.no),
@@ -737,11 +739,11 @@ function drawTableRow(doc, row, y){
     
     COL.forEach(col => {
     
-        doc.line(
-            col.x,
-            y - 4,
-            col.x,
-            y + 4
+    doc.line(
+        col.x,
+        y - halfRow,
+        col.x,
+        y + halfRow
     );
 
 });
@@ -749,17 +751,17 @@ function drawTableRow(doc, row, y){
 // Garis kanan terakhir
 doc.line(
     TABLE.x + TABLE.width,
-    y - 4,
+    y - halfRow,
     TABLE.x + TABLE.width,
-    y + 4
+    y + halfRow
 );
 
 // Garis bawah baris
 doc.line(
     TABLE.x,
-    y + 4,
+    y + halfRow,
     TABLE.x + TABLE.width,
-    y + 4
+    y + halfRow
 );
 
 }
