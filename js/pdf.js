@@ -920,8 +920,6 @@ for(let r = 1; r < sheet.length; r++){
 
     y += 8;
 
-    if(y > 190){
-
         doc.addPage("a4","landscape");
         
         drawTableHeader(doc, TABLE, COL);
