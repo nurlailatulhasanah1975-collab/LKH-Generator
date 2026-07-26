@@ -920,13 +920,15 @@ for(let r = 1; r < sheet.length; r++){
 
     y += 8;
 
-        doc.addPage("a4","landscape");
-        
-        drawTableHeader(doc, TABLE, COL);
-        
-        y = TABLE.y + TABLE.headerHeight + FIRST_ROW_OFFSET;
-        
-    y = 20;
+if(y > 190){
+
+    doc.addPage("a4","landscape");
+
+    drawTableHeader(doc, TABLE, COL);
+
+    y = TABLE.y + TABLE.headerHeight + FIRST_ROW_OFFSET;
+
+}
 
 }
 
