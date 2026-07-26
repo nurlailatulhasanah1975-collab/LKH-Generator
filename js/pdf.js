@@ -698,7 +698,7 @@ drawTableHeader(doc, TABLE, COL);
 let sheet = getSheetByIndex(excelData,0);
     
 // Posisi awal mengikuti TABLE Engine
-const FIRST_ROW_OFFSET = TABLE.rowHeight * 0.75;
+const FIRST_ROW_OFFSET = TABLE.rowHeight / 2;
 let y = TABLE.y + TABLE.headerHeight + FIRST_ROW_OFFSET;
  
 //----------------------------------------------------
@@ -821,6 +821,18 @@ const halfRow = TABLE.rowHeight / 2;
 
 doc.setLineWidth(0.2);
 
+// Garis atas hanya untuk baris pertama
+if (row.no === 1) {
+
+    doc.line(
+        TABLE.x,
+        y - halfRow,
+        TABLE.x + TABLE.width,
+        y - halfRow
+    );
+
+}
+    
 // Garis vertikal
 COL.forEach(col => {
 
