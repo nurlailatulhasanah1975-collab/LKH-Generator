@@ -865,14 +865,28 @@ doc.line(
 );
 
 // Garis bawah
-doc.line(
-    TABLE.x,
-    y + halfRow,
-    TABLE.x + TABLE.width,
-    y + halfRow
-);
+if(row.tanggalBaru){
+
+    // Baris pertama tanggal → garis penuh
+    doc.line(
+        TABLE.x,
+        y + halfRow,
+        TABLE.x + TABLE.width,
+        y + halfRow
+    );
+
+}else{
+
+    // Baris lanjutan → mulai dari kolom Jam
+    doc.line(
+        getColumn("jam").x,
+        y + halfRow,
+        TABLE.x + TABLE.width,
+        y + halfRow
+    );
 
 }
+    
 //----------------------------------------------------
 // CETAK DATA EXCEL
 //----------------------------------------------------
