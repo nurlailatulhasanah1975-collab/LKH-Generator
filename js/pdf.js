@@ -505,13 +505,15 @@ function getColumn(key){
 // MEMBANGUN DATA LAPORAN DARI DATA EXCEL
 //----------------------------------------------------
 
-    function buildReportRow(row, nomor, tanggalAktif, formData){
+  const tanggalBaru = row[0] !== "" && row[0] != null;
 
     const tanggal = tanggalAktif;
 
     return {
 
         no : nomor,
+
+        tanggalBaru : tanggalBaru,
 
         hari : getNamaHari(
             tanggal,
@@ -546,7 +548,6 @@ function getColumn(key){
     };
 
 }
-
 
 //----------------------------------------------------
 // MENCARI NAMA HARI
@@ -710,6 +711,8 @@ function drawTableRow(doc, row, y){
     doc.setFont("helvetica","normal");
     doc.setFontSize(8);
 
+    if(row.tanggalBaru){
+
     // No
     doc.text(
         String(row.no),
@@ -732,6 +735,8 @@ function drawTableRow(doc, row, y){
         y + 2
     );
 
+}
+    
     // Jam
     doc.text(
         String(row.jam),
