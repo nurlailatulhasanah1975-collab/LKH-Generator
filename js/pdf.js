@@ -698,7 +698,7 @@ drawTableHeader(doc, TABLE, COL);
 let sheet = getSheetByIndex(excelData,0);
     
 // Posisi awal mengikuti TABLE Engine
-const FIRST_ROW_OFFSET = TABLE.rowHeight;
+const FIRST_ROW_OFFSET = TABLE.rowHeight * 0.75;
 let y = TABLE.y + TABLE.headerHeight + FIRST_ROW_OFFSET;
  
 //----------------------------------------------------
