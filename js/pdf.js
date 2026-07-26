@@ -505,7 +505,13 @@ function getColumn(key){
 // MEMBANGUN DATA LAPORAN DARI DATA EXCEL
 //----------------------------------------------------
 
-  const tanggalBaru = row[0] !== "" && row[0] != null;
+  //----------------------------------------------------
+// MEMBANGUN DATA LAPORAN DARI DATA EXCEL
+//----------------------------------------------------
+
+function buildReportRow(row, nomor, tanggalAktif, formData){
+
+    const tanggalBaru = row[0] !== "" && row[0] != null;
 
     const tanggal = tanggalAktif;
 
@@ -548,7 +554,7 @@ function getColumn(key){
     };
 
 }
-
+    
 //----------------------------------------------------
 // MENCARI NAMA HARI
 //----------------------------------------------------
