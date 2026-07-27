@@ -833,7 +833,7 @@ doc.text(
 const halfRow = TABLE.rowHeight / 2;
 
 // Geser seluruh garis naik 1 mm
-const LINE_OFFSET_Y = -1;
+const LINE_OFFSET_Y = 1;
 
 // Tambah panjang garis vertikal 1 mm ke atas
 const VERTICAL_UP = 1;
