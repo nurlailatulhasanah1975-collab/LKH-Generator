@@ -832,8 +832,11 @@ doc.text(
 
 const halfRow = TABLE.rowHeight / 2;
 
-// Geser seluruh garis tabel naik 1 mm
+// Geser seluruh garis naik 1 mm
 const LINE_OFFSET_Y = -1;
+
+// Tambah panjang garis vertikal 1 mm ke atas
+const VERTICAL_UP = 1;
 
 doc.setLineWidth(0.2);
 
@@ -860,7 +863,7 @@ COL.forEach(col => {
 
     doc.line(
         col.x,
-        y - halfRow + LINE_OFFSET_Y,
+        y - halfRow + LINE_OFFSET_Y - VERTICAL_UP,
         col.x,
         y + halfRow + LINE_OFFSET_Y
     );
@@ -873,7 +876,7 @@ COL.forEach(col => {
 
 doc.line(
     TABLE.x + TABLE.width,
-    y - halfRow + LINE_OFFSET_Y,
+    y - halfRow + LINE_OFFSET_Y - VERTICAL_UP,
     TABLE.x + TABLE.width,
     y + halfRow + LINE_OFFSET_Y
 );
@@ -888,8 +891,6 @@ doc.line(
     TABLE.x + TABLE.width,
     y + halfRow + LINE_OFFSET_Y
 );
-
-}
     
 //----------------------------------------------------
 // CETAK DATA EXCEL
