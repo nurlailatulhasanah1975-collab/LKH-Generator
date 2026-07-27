@@ -714,22 +714,14 @@ let y = TABLE.y + TABLE.headerHeight + FIRST_ROW_OFFSET;
 
 function drawTableRow(doc, row, y){
 
-    doc.setFont("helvetica","normal");
-    doc.setFontSize(8);
+  doc.setFont("courier", "bold");
+    doc.setFontSize(30);
 
-    const cellTop = y - (TABLE.rowHeight / 2);
-    const cellMiddle = cellTop + (TABLE.rowHeight / 2);
-    
-    if(row.tanggalBaru){
-
-doc.setFont("courier", "bold");
-doc.setFontSize(20);
-
-doc.text(
-    "XXX",
-    50,
-    50
-);
+    doc.text(
+        "TEST",
+        100,
+        100
+    );
         
     // No
 doc.text(
