@@ -717,7 +717,8 @@ function drawTableRow(doc, row, y){
     doc.setFont("helvetica","normal");
     doc.setFontSize(8);
 
-    const topY = y - (TABLE.rowHeight / 2) + 2;
+    const cellTop = y - (TABLE.rowHeight / 2);
+    const cellMiddle = cellTop + (TABLE.rowHeight / 2);
     
     if(row.tanggalBaru){
 
@@ -725,7 +726,7 @@ function drawTableRow(doc, row, y){
 doc.text(
     String(row.no),
     getColumn("no").center,
-    topY + 2,
+    cellMiddle,
     { align:"center" }
 );        
 
