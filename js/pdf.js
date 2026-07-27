@@ -844,16 +844,16 @@ doc.setLineWidth(0.2);
 // Garis atas (hanya baris pertama)
 //--------------------------------------
 
-//if (row.no === 1) {
+if (row.no === 1) {
 
-  //  doc.line(
-    //    TABLE.x,
-      //  y - halfRow + LINE_OFFSET_Y,
-        //TABLE.x + TABLE.width,
-        //y - halfRow + LINE_OFFSET_Y
-//    );
+    doc.line(
+        TABLE.x,
+        y - halfRow + LINE_OFFSET_Y,
+        TABLE.x + TABLE.width,
+        y - halfRow + LINE_OFFSET_Y
+    );
 
-//}
+}
 
 //--------------------------------------
 // Garis vertikal setiap kolom
