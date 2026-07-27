@@ -722,6 +722,15 @@ function drawTableRow(doc, row, y){
     
     if(row.tanggalBaru){
 
+doc.setFont("courier", "bold");
+doc.setFontSize(20);
+
+doc.text(
+    "XXX",
+    50,
+    50
+);
+        
     // No
 doc.text(
     String(row.no),
