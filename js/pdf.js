@@ -721,10 +721,10 @@ function drawTableRow(doc, row, y){
 
     // No
     doc.text(
-        String(row.no),
-        getColumn("no").center,
-        y,
-        { align:"center" }
+    String(row.no),
+    getColumn("no").center,
+    y - 1.5,
+    { align:"center" }
     );
 
     // Hari
