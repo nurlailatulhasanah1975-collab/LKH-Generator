@@ -720,12 +720,16 @@ function drawTableRow(doc, row, y){
     if(row.tanggalBaru){
 
     // No
-    doc.text(
+doc.text(
     String(row.no),
     getColumn("no").center,
-    y - 1.5,
-    { align:"center" }
-    );
+    y - 2.5,
+    {
+        align: "center",
+        baseline: "top"
+    }
+);
+        
 
     // Hari
     doc.text(
