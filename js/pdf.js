@@ -846,12 +846,12 @@ doc.setLineWidth(0.2);
 
 if (row.no === 1) {
 
-    doc.line(
-        TABLE.x,
-        y - halfRow + LINE_OFFSET_Y,
-        TABLE.x + TABLE.width,
-        y - halfRow + LINE_OFFSET_Y
-    );
+doc.line(
+    TABLE.x,
+    y - halfRow + GRID_OFFSET_Y,
+    TABLE.x + TABLE.width,
+    y - halfRow + GRID_OFFSET_Y
+);
 
 }
 
@@ -863,9 +863,9 @@ COL.forEach(col => {
 
     doc.line(
         col.x,
-        y - halfRow + LINE_OFFSET_Y - VERTICAL_UP,
+        y - halfRow + GRID_OFFSET_Y,
         col.x,
-        y + halfRow + LINE_OFFSET_Y
+        y + halfRow + GRID_OFFSET_Y
     );
 
 });
@@ -876,9 +876,9 @@ COL.forEach(col => {
 
 doc.line(
     TABLE.x + TABLE.width,
-    y - halfRow + LINE_OFFSET_Y - VERTICAL_UP,
+    y - halfRow + GRID_OFFSET_Y,
     TABLE.x + TABLE.width,
-    y + halfRow + LINE_OFFSET_Y
+    y + halfRow + GRID_OFFSET_Y
 );
 
 //--------------------------------------
@@ -887,9 +887,9 @@ doc.line(
 
 doc.line(
     TABLE.x,
-    y + halfRow + LINE_OFFSET_Y,
+    y + halfRow + GRID_OFFSET_Y,
     TABLE.x + TABLE.width,
-    y + halfRow + LINE_OFFSET_Y
+    y + halfRow + GRID_OFFSET_Y
 );
 
 }
