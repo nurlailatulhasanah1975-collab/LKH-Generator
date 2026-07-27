@@ -656,7 +656,7 @@ function drawTableHeader(doc, table, columns){
     });
 
 }    
-     console.log("First row bottom =", y + halfRow + LINE_OFFSET_Y);
+
 //----------------------------------------------------
 // TABLE LAYOUT ENGINE
 //----------------------------------------------------
@@ -841,21 +841,6 @@ const VERTICAL_UP = 1;
 doc.setLineWidth(0.2);
 
 //--------------------------------------
-// Garis atas (hanya baris pertama)
-//--------------------------------------
-
-if (row.no === 1) {
-
-    doc.line(
-        TABLE.x,
-        y - halfRow + LINE_OFFSET_Y,
-        TABLE.x + TABLE.width,
-        y - halfRow + LINE_OFFSET_Y
-    );
-
-}
-
-//--------------------------------------
 // Garis vertikal setiap kolom
 //--------------------------------------
 
@@ -880,7 +865,7 @@ doc.line(
     TABLE.x + TABLE.width,
     y + halfRow + LINE_OFFSET_Y
 );
-     console.log("First row bottom =", y + halfRow + LINE_OFFSET_Y);
+
 //--------------------------------------
 // Garis bawah
 //--------------------------------------
