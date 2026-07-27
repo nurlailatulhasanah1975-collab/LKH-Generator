@@ -891,6 +891,8 @@ doc.line(
     TABLE.x + TABLE.width,
     y + halfRow + LINE_OFFSET_Y
 );
+
+}
     
 //----------------------------------------------------
 // CETAK DATA EXCEL
