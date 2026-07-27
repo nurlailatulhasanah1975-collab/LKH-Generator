@@ -717,19 +717,17 @@ function drawTableRow(doc, row, y){
     doc.setFont("helvetica","normal");
     doc.setFontSize(8);
 
+    const topY = y - (TABLE.rowHeight / 2) + 2;
+    
     if(row.tanggalBaru){
 
     // No
 doc.text(
     String(row.no),
     getColumn("no").center,
-    y - 2.5,
-    {
-        align: "center",
-        baseline: "top"
-    }
-);
-        
+    topY + 2,
+    { align:"center" }
+);        
 
     // Hari
     doc.text(
