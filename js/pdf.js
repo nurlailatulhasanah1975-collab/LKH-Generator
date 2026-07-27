@@ -714,22 +714,18 @@ let y = TABLE.y + TABLE.headerHeight + FIRST_ROW_OFFSET;
 
 function drawTableRow(doc, row, y){
 
-  doc.setFont("courier", "bold");
-    doc.setFontSize(30);
+    doc.setFont("helvetica","normal");
+    doc.setFontSize(8);
 
-    doc.text(
-        "TEST",
-        100,
-        100
-    );
-        
+    if(row.tanggalBaru){
+
     // No
-doc.text(
-    String(row.no),
-    getColumn("no").center,
-    cellMiddle,
-    { align:"center" }
-);        
+    doc.text(
+        String(row.no),
+        getColumn("no").center,
+        y,
+        { align:"center" }
+    );
 
     // Hari
     doc.text(
@@ -869,30 +865,14 @@ doc.line(
 );
 
 // Garis bawah
-if(row.tanggalBaru){
-
-    // Baris pertama tanggal → garis penuh
-    doc.line(
-        TABLE.x,
-        y + halfRow,
-        TABLE.x + TABLE.width,
-        y + halfRow
-    );
-
-}else{
-
-    // Baris lanjutan → mulai dari kolom Jam
-    doc.line(
-        getColumn("jam").x,
-        y + halfRow,
-        TABLE.x + TABLE.width,
-        y + halfRow
-    );
+doc.line(
+    TABLE.x,
+    y + halfRow,
+    TABLE.x + TABLE.width,
+    y + halfRow
+);
 
 }
-
-}
-    
 //----------------------------------------------------
 // CETAK DATA EXCEL
 //----------------------------------------------------
@@ -924,15 +904,11 @@ for(let r = 1; r < sheet.length; r++){
 
     y += 8;
 
-if(y > 190){
+    if(y > 190){
 
     doc.addPage("a4","landscape");
 
-    TABLE.y = 20;
-
-drawTableHeader(doc, TABLE, COL);
-
-y = TABLE.y + TABLE.headerHeight + FIRST_ROW_OFFSET;
+    y = 20;
 
 }
 
@@ -998,6 +974,8 @@ y = TABLE.y + TABLE.headerHeight + FIRST_ROW_OFFSET;
         );
 
     }
+
+
 
     //----------------------------------------------------
     // RETURN BLOB
