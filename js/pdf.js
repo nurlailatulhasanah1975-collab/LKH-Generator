@@ -717,92 +717,81 @@ function drawTableRow(doc, row, y){
     doc.setFont("helvetica","normal");
     doc.setFontSize(8);
 
-    // posisi batas sel
-    const cellTop = y - (TABLE.rowHeight / 2);
-
-    // padding atas
-    const textTop = cellTop + 2;
-
     if(row.tanggalBaru){
 
     // No
     doc.text(
-        (row.no),
+        String(row.no),
         getColumn("no").center,
-        textTop,
+        y,
         { align:"center" }
     );
 
     // Hari
     doc.text(
-        (row.hari),
+        String(row.hari),
         getColumn("tanggal").x + 1,
-        textTop
+        y - 1.5
     );
-    
+
     // Tanggal
     doc.text(
-        (row.tanggal),
+        String(row.tanggal),
         getColumn("tanggal").x + 1,
-        textTop + 3
+        y + 2
     );
 
 }
     
     // Jam
     doc.text(
-        (row.jam),
+        String(row.jam),
         getColumn("jam").center,
-        textTop,
+        y,
         { align:"center" }
     );
 
         // Kelas
     doc.text(
-        (row.kelas || ""),
+        String(row.kelas || ""),
         getColumn("kelas").x + 1,
-        textTop
+        y
     );
     
     // Mata Pelajaran
     doc.text(
-        (row.mapel || ""),
+        String(row.mapel || ""),
         getColumn("mapel").x + 1,
-        textTop
+        y
     );
     
     // KI/KD
     doc.text(
-        (row.kikd || ""),
+        String(row.kikd || ""),
         getColumn("kikd").center,
-        textTop,
+        y,
         { align:"center" }
     );
     
     // Materi
-    const materi = doc.splitTextToSize(
-        String(row.materi || ""),
-        getColumn("materi").width - 2
-    );
-    
     doc.text(
-        materi,
+        String(row.materi || ""),
         getColumn("materi").x + 1,
-        textTop
+        y
     );
     
     // Hasil
     doc.text(
         String(row.hasil || ""),
         getColumn("hasil").x + 1,
-        textTop
+        y
     );
     
     // Vol
     doc.text(
         String(row.vol || ""),
         getColumn("vol").center,
-        textTop,
+        y,
         { align:"center" }
     );
     
@@ -810,7 +799,7 @@ function drawTableRow(doc, row, y){
     doc.text(
         String(row.s || ""),
         getColumn("s").center,
-        textTop,
+        y,
         { align:"center" }
     );
     
@@ -818,7 +807,7 @@ function drawTableRow(doc, row, y){
     doc.text(
         String(row.i || ""),
         getColumn("i").center,
-        textTop,
+        y,
         { align:"center" }
     );
     
@@ -826,7 +815,7 @@ function drawTableRow(doc, row, y){
     doc.text(
         String(row.a || ""),
         getColumn("a").center,
-        textTop,
+        y,
         { align:"center" }
     );
     
@@ -834,10 +823,10 @@ function drawTableRow(doc, row, y){
 doc.text(
     String(row.ket || ""),
     getColumn("ket").x + 1,
-    textTop
+    y
 );
 
-    console.log("draw line", textTop);
+    console.log("draw line", y);
 
 const halfRow = TABLE.rowHeight / 2;
 
