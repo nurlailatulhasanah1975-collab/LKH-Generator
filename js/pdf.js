@@ -727,7 +727,7 @@ function drawTableRow(doc, row, y){
 
     // No
     doc.text(
-        String(row.no),
+        (row.no),
         getColumn("no").center,
         textTop,
         { align:"center" }
@@ -735,14 +735,14 @@ function drawTableRow(doc, row, y){
 
     // Hari
     doc.text(
-        String(row.hari),
+        (row.hari),
         getColumn("tanggal").x + 1,
         textTop
     );
     
     // Tanggal
     doc.text(
-        String(row.tanggal),
+        (row.tanggal),
         getColumn("tanggal").x + 1,
         textTop + 3
     );
@@ -751,7 +751,7 @@ function drawTableRow(doc, row, y){
     
     // Jam
     doc.text(
-        String(row.jam),
+        (row.jam),
         getColumn("jam").center,
         textTop,
         { align:"center" }
@@ -759,29 +759,34 @@ function drawTableRow(doc, row, y){
 
         // Kelas
     doc.text(
-        String(row.kelas || ""),
+        (row.kelas || ""),
         getColumn("kelas").x + 1,
         textTop
     );
     
     // Mata Pelajaran
     doc.text(
-        String(row.mapel || ""),
+        (row.mapel || ""),
         getColumn("mapel").x + 1,
         textTop
     );
     
     // KI/KD
     doc.text(
-        String(row.kikd || ""),
+        (row.kikd || ""),
         getColumn("kikd").center,
         textTop,
         { align:"center" }
     );
     
     // Materi
-    doc.text(
+    const materi = doc.splitTextToSize(
         String(row.materi || ""),
+        getColumn("materi").width - 2
+    );
+    
+    doc.text(
+        materi,
         getColumn("materi").x + 1,
         textTop
     );
