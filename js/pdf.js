@@ -832,8 +832,8 @@ doc.text(
 
 const halfRow = TABLE.rowHeight / 2;
 
-// Geser seluruh grid tabel turun 1 mm
-const GRID_OFFSET_Y = 1;
+// Geser seluruh grid tabel turun 2 mm
+const GRID_OFFSET_Y = 2;
 
 // Tambah panjang garis vertikal 1 mm ke atas
 const VERTICAL_UP = 1;
