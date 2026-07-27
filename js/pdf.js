@@ -819,42 +819,58 @@ function drawTableRow(doc, row, y){
         { align:"center" }
     );
     
-    // Ket
+// Ket
 doc.text(
     String(row.ket || ""),
     getColumn("ket").x + 1,
     y
 );
 
-    console.log("draw line", y);
+//====================================================
+// GARIS TABEL
+//====================================================
 
 const halfRow = TABLE.rowHeight / 2;
 
-doc.setLineWidth(0.2);
-
+// Geser seluruh garis tabel naik 1 mm
 const LINE_OFFSET_Y = -1;
 
-// Garis atas hanya untuk baris pertama
+doc.setLineWidth(0.2);
+
+//--------------------------------------
+// Garis atas (hanya baris pertama)
+//--------------------------------------
+
 if (row.no === 1) {
 
     doc.line(
         TABLE.x,
-        y - halfRow,
+        y - halfRow + LINE_OFFSET_Y,
         TABLE.x + TABLE.width,
-        y - halfRow
+        y - halfRow + LINE_OFFSET_Y
     );
 
 }
-    
-// Garis vertikal
-doc.line(
-    col.x,
-    y - halfRow + LINE_OFFSET_Y,
-    col.x,
-    y + halfRow + LINE_OFFSET_Y
-);
 
-// Garis kanan
+//--------------------------------------
+// Garis vertikal setiap kolom
+//--------------------------------------
+
+COL.forEach(col => {
+
+    doc.line(
+        col.x,
+        y - halfRow + LINE_OFFSET_Y,
+        col.x,
+        y + halfRow + LINE_OFFSET_Y
+    );
+
+});
+
+//--------------------------------------
+// Garis kanan tabel
+//--------------------------------------
+
 doc.line(
     TABLE.x + TABLE.width,
     y - halfRow + LINE_OFFSET_Y,
@@ -862,7 +878,10 @@ doc.line(
     y + halfRow + LINE_OFFSET_Y
 );
 
+//--------------------------------------
 // Garis bawah
+//--------------------------------------
+
 doc.line(
     TABLE.x,
     y + halfRow + LINE_OFFSET_Y,
@@ -870,15 +889,8 @@ doc.line(
     y + halfRow + LINE_OFFSET_Y
 );
 
-// Garis atas (jika ada)
-doc.line(
-    TABLE.x,
-    y - halfRow + LINE_OFFSET_Y,
-    TABLE.x + TABLE.width,
-    y - halfRow + LINE_OFFSET_Y
-);
-
 }
+    
 //----------------------------------------------------
 // CETAK DATA EXCEL
 //----------------------------------------------------
