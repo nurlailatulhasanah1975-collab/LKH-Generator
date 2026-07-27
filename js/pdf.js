@@ -924,9 +924,11 @@ if(y > 190){
 
     doc.addPage("a4","landscape");
 
-    drawTableHeader(doc, TABLE, COL);
+    TABLE.y = 20;
 
-    y = TABLE.y + TABLE.headerHeight + FIRST_ROW_OFFSET;
+drawTableHeader(doc, TABLE, COL);
+
+y = TABLE.y + TABLE.headerHeight + FIRST_ROW_OFFSET;
 
 }
 
