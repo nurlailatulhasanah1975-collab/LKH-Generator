@@ -832,6 +832,8 @@ const halfRow = TABLE.rowHeight / 2;
 
 doc.setLineWidth(0.2);
 
+const LINE_OFFSET_Y = -1;
+
 // Garis atas hanya untuk baris pertama
 if (row.no === 1) {
 
@@ -845,31 +847,35 @@ if (row.no === 1) {
 }
     
 // Garis vertikal
-COL.forEach(col => {
+doc.line(
+    col.x,
+    y - halfRow + LINE_OFFSET_Y,
+    col.x,
+    y + halfRow + LINE_OFFSET_Y
+);
 
-    doc.line(
-        col.x,
-        y - halfRow,
-        col.x,
-        y + halfRow
-    );
-
-});
-
-// Garis kanan tabel
+// Garis kanan
 doc.line(
     TABLE.x + TABLE.width,
-    y - halfRow,
+    y - halfRow + LINE_OFFSET_Y,
     TABLE.x + TABLE.width,
-    y + halfRow
+    y + halfRow + LINE_OFFSET_Y
 );
 
 // Garis bawah
 doc.line(
     TABLE.x,
-    y + halfRow,
+    y + halfRow + LINE_OFFSET_Y,
     TABLE.x + TABLE.width,
-    y + halfRow
+    y + halfRow + LINE_OFFSET_Y
+);
+
+// Garis atas (jika ada)
+doc.line(
+    TABLE.x,
+    y - halfRow + LINE_OFFSET_Y,
+    TABLE.x + TABLE.width,
+    y - halfRow + LINE_OFFSET_Y
 );
 
 }
