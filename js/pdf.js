@@ -656,7 +656,7 @@ function drawTableHeader(doc, table, columns){
     });
 
 }    
-
+     console.log("First row bottom =", y + halfRow + LINE_OFFSET_Y);
 //----------------------------------------------------
 // TABLE LAYOUT ENGINE
 //----------------------------------------------------
@@ -880,7 +880,7 @@ doc.line(
     TABLE.x + TABLE.width,
     y + halfRow + LINE_OFFSET_Y
 );
-
+     console.log("First row bottom =", y + halfRow + LINE_OFFSET_Y);
 //--------------------------------------
 // Garis bawah
 //--------------------------------------
