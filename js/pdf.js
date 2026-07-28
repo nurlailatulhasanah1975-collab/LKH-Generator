@@ -846,15 +846,14 @@ doc.setLineWidth(0.2);
 
 if (row.no === 1) {
 
-doc.line(
-    TABLE.x,
-    y - halfRow + GRID_OFFSET_Y,
-    TABLE.x + TABLE.width,
-    y - halfRow + GRID_OFFSET_Y
-);
+    doc.line(
+        TABLE.x,
+        y - halfRow + GRID_OFFSET_Y + 1,
+        TABLE.x + TABLE.width,
+        y - halfRow + GRID_OFFSET_Y + 1
+    );
 
 }
-
 //--------------------------------------
 // Garis vertikal setiap kolom
 //--------------------------------------
