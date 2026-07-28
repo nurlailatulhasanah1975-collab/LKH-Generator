@@ -67,7 +67,7 @@ async function buatPDF(formData, excelData) {
     }
 
     const layout = new LayoutManager(doc);
-    
+
 //----------------------------------------------------
 // HEADER
 //----------------------------------------------------
@@ -259,7 +259,7 @@ doc.text(
     83,
     { align: "center" }
 );
-    
+
 //----------------------------------------------------
 // PANEL IDENTITAS
 //----------------------------------------------------
@@ -459,33 +459,33 @@ const TABLE = {
     // definisi kolom
     columns: [
 
-    { key:"no",      title:"No",                 weight:3 },
-
-    { key:"tanggal", title:"Hari / Tanggal",     weight:15 },
-
-    { key:"jam",     title:"Jam Ke-",            weight:8 },
-
-    { key:"kelas",   title:"Kelas / Ekskul",     weight:6 },
-
-    { key:"mapel",   title:"Mata Pelajaran",     weight:11 },
-
-    { key:"kikd",    title:"No KI/KD",           weight:5 },
-
-    { key:"materi",  title:"Kegiatan / Materi",  weight:38 },
-
-    { key:"hasil",   title:"Hasil",              weight:8 },
-
-    { key:"vol",     title:"Vol",                weight:4 },
-
-    { key:"s",       title:"S",                  weight:2 },
-
-    { key:"i",       title:"I",                  weight:2 },
-
-    { key:"a",       title:"A",                  weight:2 },
-
-    { key:"ket",     title:"Ket",                weight:6 }
-
-]
+        { key:"no",      title:"No",                 weight:3 },
+    
+        { key:"tanggal", title:"Hari / Tanggal",     weight:15 },
+    
+        { key:"jam",     title:"Jam Ke-",            weight:8 },
+    
+        { key:"kelas",   title:"Kelas / Ekskul",     weight:6 },
+    
+        { key:"mapel",   title:"Mata Pelajaran",     weight:11 },
+    
+        { key:"kikd",    title:"No KI/KD",           weight:5 },
+    
+        { key:"materi",  title:"Kegiatan / Materi",  weight:38 },
+    
+        { key:"hasil",   title:"Hasil",              weight:8 },
+    
+        { key:"vol",     title:"Vol",                weight:4 },
+    
+        { key:"s",       title:"S",                  weight:2 },
+    
+        { key:"i",       title:"I",                  weight:2 },
+    
+        { key:"a",       title:"A",                  weight:2 },
+    
+        { key:"ket",     title:"Ket",                weight:6 }
+    
+    ]
 
 };
 
@@ -554,7 +554,7 @@ function buildReportRow(row, nomor, tanggalAktif, formData){
     };
 
 }
-    
+
 //----------------------------------------------------
 // MENCARI NAMA HARI
 //----------------------------------------------------
@@ -595,7 +595,7 @@ function getNamaHari(tanggal, bulan, tahun){
     return hari[d.getDay()];
 
 }
-    
+
 //----------------------------------------------------
 // DRAW TABLE HEADER
 //----------------------------------------------------
@@ -695,19 +695,19 @@ function buildColumns(table){
     });
 
 }
-    
+
 //----------------------------------------------------
 // DATA EXCEL
 //----------------------------------------------------
 
 drawTableHeader(doc, TABLE, COL);
-    
+
 let sheet = getSheetByIndex(excelData,0);
-    
+
 // Posisi awal mengikuti TABLE Engine
 const FIRST_ROW_OFFSET = TABLE.rowHeight / 2;
 let y = TABLE.y + TABLE.headerHeight + FIRST_ROW_OFFSET;
- 
+
 //----------------------------------------------------
 // DRAW SATU BARIS TABEL
 //----------------------------------------------------
@@ -723,7 +723,7 @@ function drawTableRow(doc, row, y){
 
 const TEXT_ROW1 = y;
 const TEXT_ROW2 = y + 3.5;
-    
+
     if(row.tanggalBaru){
 
     // No
@@ -747,7 +747,7 @@ doc.text(
 );
 
 }
-    
+
     // Jam
   doc.text(
     String(row.jam),
@@ -793,7 +793,7 @@ doc.text(
     TEXT_ROW1,
     { align:"center" }
 );
-    
+
     // S
   doc.text(
     String(row.s || ""),
@@ -801,7 +801,7 @@ doc.text(
     TEXT_ROW1,
     { align:"center" }
 );
-    
+
     // I
   doc.text(
     String(row.i || ""),
@@ -809,7 +809,7 @@ doc.text(
     TEXT_ROW1,
     { align:"center" }
 );
-    
+
     // A
  doc.text(
     String(row.a || ""),
@@ -823,7 +823,7 @@ doc.text(
     getColumn("ket").x + 1,
     TEXT_ROW1
 );
-    
+
 //====================================================
 // GARIS TABEL
 //====================================================
@@ -866,7 +866,7 @@ COL.forEach(col => {
     );
 
 });
-    
+
 //--------------------------------------
 // Garis kanan tabel
 //--------------------------------------
@@ -890,7 +890,7 @@ doc.line(
 );
 
 }
-    
+
 //----------------------------------------------------
 // CETAK DATA EXCEL
 //----------------------------------------------------
@@ -932,7 +932,7 @@ for(let r = 1; r < sheet.length; r++){
 
 }
 
-       
+
     //----------------------------------------------------
     // PENGESAHAN
     //----------------------------------------------------
@@ -1002,3 +1002,10 @@ for(let r = 1; r < sheet.length; r++){
     return doc.output("blob");
 
 }
+0 commit comments
+Comments
+0
+ (0)
+Comment
+You're not receiving notifications from this thread.
+
