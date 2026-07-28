@@ -639,7 +639,7 @@ function drawTableHeader(doc, table, columns){
     // ==========================
 
     doc.setFont("times","bold");
-    doc.setFontSize(8);
+    doc.setFontSize(10);
 
     columns.forEach(col=>{
 
@@ -715,7 +715,7 @@ let y = TABLE.y + TABLE.headerHeight + FIRST_ROW_OFFSET;
 function drawTableRow(doc, row, y){
 
     doc.setFont("helvetica","normal");
-    doc.setFontSize(8);
+    doc.setFontSize(10);
 
 //======================================
 // STANDAR POSISI TEKS
