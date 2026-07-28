@@ -838,8 +838,6 @@ const VERTICAL_UP = 1;
 // Geser seluruh grid tabel turun 2 mm
 const GRID_OFFSET_Y = 2;
 
-// Tambah panjang garis vertikal 1 mm ke atas
-const VERTICAL_UP = 1;
 
 doc.setLineWidth(0.2);
 
