@@ -461,13 +461,13 @@ const TABLE = {
 
         { key:"no",      title:"No",                 weight:24 },
     
-        { key:"tanggal", title:"Hari / Tanggal",     weight:75 },
+        { key:"tanggal", title:"Hari / Tanggal",     weight:90 },
     
         { key:"jam",     title:"Jam Ke-",            weight:56 },
     
         { key:"kelas",   title:"Kelas / Ekskul",     weight:60 },
     
-        { key:"mapel",   title:"Mata Pelajaran",     weight:110 },
+        { key:"mapel",   title:"Mata Pelajaran",     weight:95 },
     
         { key:"kikd",    title:"No KI/KD",           weight:50 },
     
@@ -483,7 +483,7 @@ const TABLE = {
     
         { key:"a",       title:"A",                  weight:30 },
     
-        { key:"ket",     title:"Ket",                weight:60 }
+        { key:"ket",     title:"Ket",                weight:80 }
     
     ]
 
