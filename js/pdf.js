@@ -461,7 +461,7 @@ const TABLE = {
     
         { key:"no",      title:"No",                 weight:19 },
     
-        { key:"tanggal", title:"Hari / Tanggal",     weight:128 },
+        { key:"tanggal", title:"Hari / Tanggal",     weight:95 },
     
         { key:"jam",     title:"Jam Ke-",            weight:57 },
     
@@ -471,7 +471,7 @@ const TABLE = {
     
         { key:"kikd",    title:"No KI/KD",           weight:32 },
     
-        { key:"materi",  title:"Kegiatan / Materi",  weight:232 },
+        { key:"materi",  title:"Kegiatan / Materi",  weight:250 },
     
         { key:"hasil",   title:"Hasil",              weight:55 },
     
