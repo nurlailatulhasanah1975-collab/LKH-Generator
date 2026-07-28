@@ -717,115 +717,113 @@ function drawTableRow(doc, row, y){
     doc.setFont("helvetica","normal");
     doc.setFontSize(8);
 
+//======================================
+// STANDAR POSISI TEKS
+//======================================
+
+const TEXT_ROW1 = y;
+const TEXT_ROW2 = y + 3.5;
+    
     if(row.tanggalBaru){
 
     // No
-    doc.text(
-        String(row.no),
-        getColumn("no").center,
-        y,
-        { align:"center" }
-    );
-
+doc.text(
+    String(row.no),
+    getColumn("no").center,
+    TEXT_ROW1,
+    { align:"center" }
+);
     // Hari
-    doc.text(
-        String(row.hari),
-        getColumn("tanggal").x + 1,
-        y - 1.5
-    );
-
+  doc.text(
+    String(row.hari),
+    getColumn("tanggal").x + 1,
+    TEXT_ROW1
+);
     // Tanggal
-    doc.text(
-        String(row.tanggal),
-        getColumn("tanggal").x + 1,
-        y + 2
-    );
+  doc.text(
+    String(row.tanggal),
+    getColumn("tanggal").x + 1,
+    TEXT_ROW2
+);
 
 }
     
     // Jam
-    doc.text(
-        String(row.jam),
-        getColumn("jam").center,
-        y,
-        { align:"center" }
-    );
+  doc.text(
+    String(row.jam),
+    getColumn("jam").center,
+    TEXT_ROW1,
+    { align:"center" }
+);
 
-        // Kelas
-    doc.text(
-        String(row.kelas || ""),
-        getColumn("kelas").x + 1,
-        y
-    );
-    
-    // Mata Pelajaran
-    doc.text(
-        String(row.mapel || ""),
-        getColumn("mapel").x + 1,
-        y
-    );
-    
-    // KI/KD
-    doc.text(
-        String(row.kikd || ""),
-        getColumn("kikd").center,
-        y,
-        { align:"center" }
-    );
-    
-    // Materi
-    doc.text(
-        String(row.materi || ""),
-        getColumn("materi").x + 1,
-        y
-    );
-    
+     // Kelas
+  doc.text(
+    String(row.kelas || ""),
+    getColumn("kelas").x + 1,
+    TEXT_ROW1
+);    
+  // Mata Pelajaran
+  doc.text(
+    String(row.mapel || ""),
+    getColumn("mapel").x + 1,
+    TEXT_ROW1
+);  
+  // KI/KD
+  doc.text(
+    String(row.mapel || ""),
+    getColumn("mapel").x + 1,
+    TEXT_ROW1
+);
+  // Materi
+doc.text(
+    String(row.materi || ""),
+    getColumn("materi").x + 1,
+    TEXT_ROW1
+);    
     // Hasil
-    doc.text(
-        String(row.hasil || ""),
-        getColumn("hasil").x + 1,
-        y
-    );
-    
+  doc.text(
+    String(row.hasil || ""),
+    getColumn("hasil").x + 1,
+    TEXT_ROW1
+);    
     // Vol
-    doc.text(
-        String(row.vol || ""),
-        getColumn("vol").center,
-        y,
-        { align:"center" }
-    );
+  doc.text(
+    String(row.vol || ""),
+    getColumn("vol").center,
+    TEXT_ROW1,
+    { align:"center" }
+);
     
     // S
-    doc.text(
-        String(row.s || ""),
-        getColumn("s").center,
-        y,
-        { align:"center" }
-    );
+  doc.text(
+    String(row.s || ""),
+    getColumn("s").center,
+    TEXT_ROW1,
+    { align:"center" }
+);
     
     // I
-    doc.text(
-        String(row.i || ""),
-        getColumn("i").center,
-        y,
-        { align:"center" }
-    );
+  doc.text(
+    String(row.i || ""),
+    getColumn("i").center,
+    TEXT_ROW1,
+    { align:"center" }
+);
     
     // A
-    doc.text(
-        String(row.a || ""),
-        getColumn("a").center,
-        y,
-        { align:"center" }
-    );
-    
+ doc.text(
+    String(row.a || ""),
+    getColumn("a").center,
+    TEXT_ROW1,
+    { align:"center" }
+);
 // Ket
 doc.text(
     String(row.ket || ""),
     getColumn("ket").x + 1,
-    y
+    TEXT_ROW1
 );
-
+    
 //====================================================
 // GARIS TABEL
 //====================================================
