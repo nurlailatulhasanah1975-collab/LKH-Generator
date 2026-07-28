@@ -475,7 +475,7 @@ const TABLE = {
     
         { key:"hasil",   title:"Hasil",              weight:55 },
     
-        { key:"vol",     title:"Vol",                weight:842 },
+        { key:"vol",     title:"Vol",                weight:42 },
     
         { key:"s",       title:"S",                  weight:23 },
     
