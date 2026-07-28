@@ -832,6 +832,9 @@ doc.text(
 
 const halfRow = TABLE.rowHeight / 2;
 
+// Memanjangkan garis vertikal 1 mm ke atas
+const VERTICAL_UP = 1;
+    
 // Geser seluruh grid tabel turun 2 mm
 const GRID_OFFSET_Y = 2;
 
@@ -863,13 +866,13 @@ COL.forEach(col => {
 
     doc.line(
         col.x,
-        y - halfRow + GRID_OFFSET_Y,
+        y - halfRow - VERTICAL_UP,
         col.x,
-        y + halfRow + GRID_OFFSET_Y
+        y + halfRow
     );
 
 });
-
+    
 //--------------------------------------
 // Garis kanan tabel
 //--------------------------------------
