@@ -627,12 +627,12 @@ function drawTableHeader(doc, table, columns){
     });
 
     // Garis kanan terakhir
-   doc.line(
-    TABLE.x + TABLE.width,
-    y - halfRow - VERTICAL_UP,
-    TABLE.x + TABLE.width,
-    y + halfRow
-);
+    doc.line(
+        table.x + table.width,
+        y,
+        table.x + table.width,
+        y + table.headerHeight
+    );
 
     // ==========================
     // Judul Kolom
@@ -832,12 +832,11 @@ doc.text(
 
 const halfRow = TABLE.rowHeight / 2;
 
-// Memanjangkan garis vertikal 1 mm ke atas
-const VERTICAL_UP = 1;
-    
 // Geser seluruh grid tabel turun 2 mm
 const GRID_OFFSET_Y = 2;
 
+// Tambah panjang garis vertikal 1 mm ke atas
+const VERTICAL_UP = 1;
 
 doc.setLineWidth(0.2);
 
@@ -864,13 +863,13 @@ COL.forEach(col => {
 
     doc.line(
         col.x,
-        y - halfRow - VERTICAL_UP,
+        y - halfRow + GRID_OFFSET_Y,
         col.x,
-        y + halfRow
+        y + halfRow + GRID_OFFSET_Y
     );
 
 });
-    
+
 //--------------------------------------
 // Garis kanan tabel
 //--------------------------------------
