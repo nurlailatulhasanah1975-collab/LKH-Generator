@@ -848,9 +848,9 @@ if (row.no === 1) {
 
     doc.line(
         TABLE.x,
-        y - halfRow + GRID_OFFSET_Y + 1,
+        y - halfRow + GRID_OFFSET_Y - 1,
         TABLE.x + TABLE.width,
-        y - halfRow + GRID_OFFSET_Y + 1
+        y - halfRow + GRID_OFFSET_Y - 1
     );
 
 }
