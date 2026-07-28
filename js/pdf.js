@@ -627,12 +627,12 @@ function drawTableHeader(doc, table, columns){
     });
 
     // Garis kanan terakhir
-    doc.line(
-        table.x + table.width,
-        y,
-        table.x + table.width,
-        y + table.headerHeight
-    );
+   doc.line(
+    TABLE.x + TABLE.width,
+    y - halfRow - VERTICAL_UP,
+    TABLE.x + TABLE.width,
+    y + halfRow
+);
 
     // ==========================
     // Judul Kolom
