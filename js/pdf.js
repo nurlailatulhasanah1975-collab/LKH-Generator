@@ -457,33 +457,33 @@ const TABLE = {
     headerHeight: 14,
 
     // definisi kolom
-    columns: [
-
-        { key:"no",      title:"No",                 weight:24 },
+        columns: [
     
-        { key:"tanggal", title:"Hari / Tanggal",     weight:90 },
+        { key:"no",      title:"No",                 weight:3 },
     
-        { key:"jam",     title:"Jam Ke-",            weight:56 },
+        { key:"tanggal", title:"Hari / Tanggal",     weight:18 },
     
-        { key:"kelas",   title:"Kelas / Ekskul",     weight:60 },
+        { key:"jam",     title:"Jam Ke-",            weight:9 },
     
-        { key:"mapel",   title:"Mata Pelajaran",     weight:95 },
+        { key:"kelas",   title:"Kelas / Ekskul",     weight:5 },
     
-        { key:"kikd",    title:"No KI/KD",           weight:50 },
+        { key:"mapel",   title:"Mata Pelajaran",     weight:11 },
     
-        { key:"materi",  title:"Kegiatan / Materi",  weight:414 },
+        { key:"kikd",    title:"No KI/KD",           weight:5 },
     
-        { key:"hasil",   title:"Hasil",              weight:80 },
+        { key:"materi",  title:"Kegiatan / Materi",  weight:35 },
     
-        { key:"vol",     title:"Vol",                weight:50 },
+        { key:"hasil",   title:"Hasil",              weight:8 },
     
-        { key:"s",       title:"S",                  weight:30 },
+        { key:"vol",     title:"Vol",                weight:4 },
     
-        { key:"i",       title:"I",                  weight:30 },
+        { key:"s",       title:"S",                  weight:2 },
     
-        { key:"a",       title:"A",                  weight:30 },
+        { key:"i",       title:"I",                  weight:2 },
     
-        { key:"ket",     title:"Ket",                weight:80 }
+        { key:"a",       title:"A",                  weight:2 },
+    
+        { key:"ket",     title:"Ket",                weight:6 }
     
     ]
 
