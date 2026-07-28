@@ -459,22 +459,33 @@ const TABLE = {
     // definisi kolom
     columns: [
 
-         key:"no", title:"No", weight:24 },
-         key:"tanggal", title:"Hari / Tanggal", weight:75 },
-         key:"jam", title:"Jam Ke-", weight:56 },
-         key:"kelas", title:"Kelas / Ekskul", weight:60 },
-         key:"mapel", title:"Mata Pelajaran", weight:110 },
-         key:"kikd", title:"No KI/KD", weight:50 },
-         key:"materi", title:"Kegiatan / Materi", weight:10 },
-         key:"hasil", title:"Hasil", weight:80 },
-         key:"vol", title:"Vol", weight:50 },
-         key:"s", title:"S", weight:30 },
-         key:"i", title:"I", weight:30 },
-         key:"a", title:"A", weight:30 },
-         key:"ket", title:"Ket", weight:60 }
+    { key:"no",      title:"No",                 weight:3 },
 
-    
-    ]
+    { key:"tanggal", title:"Hari / Tanggal",     weight:15 },
+
+    { key:"jam",     title:"Jam Ke-",            weight:8 },
+
+    { key:"kelas",   title:"Kelas / Ekskul",     weight:6 },
+
+    { key:"mapel",   title:"Mata Pelajaran",     weight:11 },
+
+    { key:"kikd",    title:"No KI/KD",           weight:5 },
+
+    { key:"materi",  title:"Kegiatan / Materi",  weight:38 },
+
+    { key:"hasil",   title:"Hasil",              weight:8 },
+
+    { key:"vol",     title:"Vol",                weight:4 },
+
+    { key:"s",       title:"S",                  weight:2 },
+
+    { key:"i",       title:"I",                  weight:2 },
+
+    { key:"a",       title:"A",                  weight:2 },
+
+    { key:"ket",     title:"Ket",                weight:6 }
+
+]
 
 };
 
