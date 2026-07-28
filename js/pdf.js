@@ -875,9 +875,9 @@ COL.forEach(col => {
 
 doc.line(
     TABLE.x + TABLE.width,
-    y - halfRow + GRID_OFFSET_Y,
+    y - halfRow + GRID_OFFSET_Y - VERTICAL_UP,
     TABLE.x + TABLE.width,
-    y + halfRow + GRID_OFFSET_Y
+    y + halfRow + GRID_OFFSET_Y + 1
 );
 
 //--------------------------------------
