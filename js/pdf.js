@@ -889,6 +889,14 @@ doc.line(
     y + halfRow + GRID_OFFSET_Y
 );
 
+//----------------------------------------------------
+// RETURN TINGGI RECORD
+//----------------------------------------------------
+
+const RECORD_HEIGHT = 8;
+
+return RECORD_HEIGHT;
+
 }
     
 //----------------------------------------------------
@@ -914,13 +922,13 @@ for(let r = 1; r < sheet.length; r++){
 
     console.log(reportRow);
 
-    drawTableRow(
-        doc,
-        reportRow,
-        y
-    );
+    const recordHeight = drawTableRow(
+    doc,
+    reportRow,
+    y
+);
 
-    y += 8;
+y += recordHeight;
 
     if(y > 190){
 
