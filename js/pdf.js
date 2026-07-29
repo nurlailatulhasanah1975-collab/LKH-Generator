@@ -461,7 +461,7 @@ const TABLE = {
     
         { key:"no",      title:"No",                 weight:19 },
     
-        { key:"tanggal", title:"Hari / Tanggal",     weight:85 },
+        { key:"tanggal", title:"Hari / Tanggal",     weight:90 },
     
         { key:"jam",     title:"Jam Ke-",            weight:57 },
     
