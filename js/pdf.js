@@ -717,6 +717,33 @@ function drawTableRow(doc, row, y){
     doc.setFont("helvetica","normal");
     doc.setFontSize(10);
 
+//----------------------------------------------------
+// STANDAR RECORD
+//----------------------------------------------------
+
+const LINE_HEIGHT = 4;
+const TOP_PADDING = 2;
+const BOTTOM_PADDING = 2;
+
+// Sementara semua field dianggap 1 baris
+const materiLines = 1;
+const hasilLines = 1;
+const ketLines = 1;
+
+const recordLines = Math.max(
+    2,              // Hari + Tanggal
+    materiLines,
+    hasilLines,
+    ketLines
+);
+
+const RECORD_HEIGHT =
+    TOP_PADDING +
+    (recordLines * LINE_HEIGHT) +
+    BOTTOM_PADDING;
+
+const TEXT_ROW1 = y;
+
 //======================================
 // STANDAR POSISI TEKS
 //======================================
@@ -893,7 +920,6 @@ doc.line(
 // RETURN TINGGI RECORD
 //----------------------------------------------------
 
-const RECORD_HEIGHT = 8;
 
 return RECORD_HEIGHT;
 
