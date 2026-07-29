@@ -461,7 +461,7 @@ const TABLE = {
     
         { key:"no",      title:"No",                 weight:19 },
     
-        { key:"tanggal", title:"Hari / Tanggal",     weight:95 },
+        { key:"tanggal", title:"Hari / Tanggal",     weight:128 },
     
         { key:"jam",     title:"Jam Ke-",            weight:57 },
     
@@ -471,7 +471,7 @@ const TABLE = {
     
         { key:"kikd",    title:"No KI/KD",           weight:32 },
     
-        { key:"materi",  title:"Kegiatan / Materi",  weight:250 },
+        { key:"materi",  title:"Kegiatan / Materi",  weight:232 },
     
         { key:"hasil",   title:"Hasil",              weight:55 },
     
@@ -717,33 +717,6 @@ function drawTableRow(doc, row, y){
     doc.setFont("helvetica","normal");
     doc.setFontSize(10);
 
-//----------------------------------------------------
-// STANDAR RECORD
-//----------------------------------------------------
-
-const LINE_HEIGHT = 4;
-const TOP_PADDING = 2;
-const BOTTOM_PADDING = 2;
-
-// Sementara semua field dianggap 1 baris
-const materiLines = 1;
-const hasilLines = 1;
-const ketLines = 1;
-
-const recordLines = Math.max(
-    2,              // Hari + Tanggal
-    materiLines,
-    hasilLines,
-    ketLines
-);
-
-const RECORD_HEIGHT =
-    TOP_PADDING +
-    (recordLines * LINE_HEIGHT) +
-    BOTTOM_PADDING;
-
-const TEXT_ROW1 = y;
-
 //======================================
 // STANDAR POSISI TEKS
 //======================================
@@ -855,13 +828,7 @@ doc.text(
 // GARIS TABEL
 //====================================================
 
-//----------------------------------------------------
-// POSISI GARIS RECORD
-//----------------------------------------------------
-
-const topLine = y - (TABLE.rowHeight / 2);
-
-const bottomLine = topLine + RECORD_HEIGHT;
+const halfRow = TABLE.rowHeight / 2;
 
 // Tambah tinggi garis vertikal ke atas
 const VERTICAL_UP = 1;
@@ -875,13 +842,15 @@ doc.setLineWidth(0.2);
 // Garis atas (hanya baris pertama)
 //--------------------------------------
 
-doc.line(
-    TABLE.x,
-    topLine + GRID_OFFSET_Y,
-    TABLE.x + TABLE.width,
-    topLine + GRID_OFFSET_Y
+if (row.no === 1) {
+
+    doc.line(
+        TABLE.x,
+        y - halfRow + GRID_OFFSET_Y - 1,
+        TABLE.x + TABLE.width,
+        y - halfRow + GRID_OFFSET_Y - 1
     );
-    
+
 }
 //--------------------------------------
 // Garis vertikal setiap kolom
@@ -891,21 +860,22 @@ COL.forEach(col => {
 
     doc.line(
         col.x,
-        topLine - VERTICAL_UP,
+        y - halfRow + GRID_OFFSET_Y - VERTICAL_UP,
         col.x,
-        bottomLine
+        y + halfRow + GRID_OFFSET_Y
     );
 
-});    
+});
+    
 //--------------------------------------
 // Garis kanan tabel
 //--------------------------------------
 
 doc.line(
     TABLE.x + TABLE.width,
-    topLine + GRID_OFFSET_Y - VERTICAL_UP,
+    y - halfRow + GRID_OFFSET_Y - VERTICAL_UP,
     TABLE.x + TABLE.width,
-    bottomLine + GRID_OFFSET_Y
+    y + halfRow + GRID_OFFSET_Y + 1
 );
 
 //--------------------------------------
@@ -914,17 +884,10 @@ doc.line(
 
 doc.line(
     TABLE.x,
-    bottomLine + GRID_OFFSET_Y,
+    y + halfRow + GRID_OFFSET_Y,
     TABLE.x + TABLE.width,
-    bottomLine + GRID_OFFSET_Y
+    y + halfRow + GRID_OFFSET_Y
 );
-
-//----------------------------------------------------
-// RETURN TINGGI RECORD
-//----------------------------------------------------
-
-
-return RECORD_HEIGHT;
 
 }
     
@@ -951,13 +914,13 @@ for(let r = 1; r < sheet.length; r++){
 
     console.log(reportRow);
 
-    const recordHeight = drawTableRow(
-    doc,
-    reportRow,
-    y
-);
+    drawTableRow(
+        doc,
+        reportRow,
+        y
+    );
 
-y += recordHeight;
+    y += 8;
 
     if(y > 190){
 
