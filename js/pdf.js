@@ -855,7 +855,13 @@ doc.text(
 // GARIS TABEL
 //====================================================
 
-const halfRow = TABLE.rowHeight / 2;
+//----------------------------------------------------
+// POSISI GARIS RECORD
+//----------------------------------------------------
+
+const topLine = y - (TABLE.rowHeight / 2);
+
+const bottomLine = topLine + RECORD_HEIGHT;
 
 // Tambah tinggi garis vertikal ke atas
 const VERTICAL_UP = 1;
@@ -869,15 +875,13 @@ doc.setLineWidth(0.2);
 // Garis atas (hanya baris pertama)
 //--------------------------------------
 
-if (row.no === 1) {
-
-    doc.line(
-        TABLE.x,
-        y - halfRow + GRID_OFFSET_Y - 1,
-        TABLE.x + TABLE.width,
-        y - halfRow + GRID_OFFSET_Y - 1
+doc.line(
+    TABLE.x,
+    topLine + GRID_OFFSET_Y,
+    TABLE.x + TABLE.width,
+    topLine + GRID_OFFSET_Y
     );
-
+    
 }
 //--------------------------------------
 // Garis vertikal setiap kolom
@@ -887,22 +891,21 @@ COL.forEach(col => {
 
     doc.line(
         col.x,
-        y - halfRow + GRID_OFFSET_Y - VERTICAL_UP,
+        topLine - VERTICAL_UP,
         col.x,
-        y + halfRow + GRID_OFFSET_Y
+        bottomLine
     );
 
-});
-    
+});    
 //--------------------------------------
 // Garis kanan tabel
 //--------------------------------------
 
 doc.line(
     TABLE.x + TABLE.width,
-    y - halfRow + GRID_OFFSET_Y - VERTICAL_UP,
+    topLine + GRID_OFFSET_Y - VERTICAL_UP,
     TABLE.x + TABLE.width,
-    y + halfRow + GRID_OFFSET_Y + 1
+    bottomLine + GRID_OFFSET_Y
 );
 
 //--------------------------------------
@@ -911,9 +914,9 @@ doc.line(
 
 doc.line(
     TABLE.x,
-    y + halfRow + GRID_OFFSET_Y,
+    bottomLine + GRID_OFFSET_Y,
     TABLE.x + TABLE.width,
-    y + halfRow + GRID_OFFSET_Y
+    bottomLine + GRID_OFFSET_Y
 );
 
 //----------------------------------------------------
