@@ -885,27 +885,17 @@ doc.text(
 );
 
      // Kelas
-  const kelasCol = getColumn("kelas");
-doc.text(
-    getCellValue(row, "kelas"),
-    kelasCol.x + 1,
-    y,
-    {
-        align: getTextAlign(kelasCol)
-    }
-);
-    
+  doc.text(
+    String(row.kelas || ""),
+    getColumn("kelas").x + 1,
+    TEXT_ROW1
+);    
   // Mata Pelajaran
-  const mapelCol = getColumn("mapel");
-doc.text(
-    getCellValue(row, "mapel"),
-    mapelCol.x + 1,
-    y,
-    {
-        align: getTextAlign(mapelCol)
-    }
+  doc.text(
+    String(row.mapel || ""),
+    getColumn("mapel").x + 1,
+    TEXT_ROW1
 );  
-    
   // KI/KD
   doc.text(
     String(row.mapel || ""),
@@ -919,16 +909,11 @@ doc.text(
     TEXT_ROW1
 );    
     // Hasil
-  const hasilCol = getColumn("hasil");
-doc.text(
-    getCellValue(row, "hasil"),
-    hasilCol.x + 1,
-    y,
-    {
-        align: getTextAlign(hasilCol)
-    }
-);
-    
+  doc.text(
+    String(row.hasil || ""),
+    getColumn("hasil").x + 1,
+    TEXT_ROW1
+);    
     // Vol
   doc.text(
     String(row.vol || ""),
