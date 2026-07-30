@@ -572,7 +572,7 @@ const TABLE = {
         type: "paragraph",
         align: "justify",
         wrap: true
-    }
+    },
 
 ]
 
