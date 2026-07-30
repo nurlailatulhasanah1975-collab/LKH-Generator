@@ -816,6 +816,29 @@ function getCellValue(row, key){
 }
 
 //----------------------------------------------------
+// ALIGNMENT jsPDF
+//----------------------------------------------------
+
+function getTextAlign(column){
+
+    switch(column.align){
+
+        case "center":
+            return "center";
+
+        case "right":
+            return "right";
+
+        default:
+            return "left";
+
+    }
+
+}
+
+
+
+//----------------------------------------------------
 // DRAW SATU BARIS TABEL
 //----------------------------------------------------
 
