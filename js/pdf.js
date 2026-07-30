@@ -458,36 +458,125 @@ const TABLE = {
 
     // definisi kolom
         columns: [
-    
-        { key:"no",      title:"No",                 weight:19 },
-    
-        { key:"tanggal", title:"Hari / Tanggal",     weight:90 },
-    
-        { key:"jam",     title:"Jam Ke-",            weight:57 },
-    
-        { key:"kelas",   title:"Kelas / Ekskul",     weight:37 },
-    
-        { key:"mapel",   title:"Mata Pelajaran",     weight:68 },
-    
-        { key:"kikd",    title:"No KI/KD",           weight:32 },
-    
-        { key:"materi",  title:"Kegiatan / Materi",  weight:270 },
-    
-        { key:"hasil",   title:"Hasil",              weight:55 },
-    
-        { key:"vol",     title:"Vol",                weight:42 },
-    
-        { key:"s",       title:"S",                  weight:23 },
-    
-        { key:"i",       title:"I",                  weight:23 },
-    
-        { key:"a",       title:"A",                  weight:23 },
-    
-        { key:"ket",     title:"Ket",                weight:80 }
-    
-    ]
 
-};
+    {
+        key: "no",
+        title: "No",
+        weight: 19,
+        type: "number",
+        align: "center",
+        wrap: false
+    },
+
+    {
+        key: "tanggal",
+        title: "Hari / Tanggal",
+        weight: 95,
+        type: "text",
+        align: "left",
+        wrap: false
+    },
+
+    {
+        key: "jam",
+        title: "Jam Ke-",
+        weight: 57,
+        type: "number",
+        align: "center",
+        wrap: false
+    },
+
+    {
+        key: "kelas",
+        title: "Kelas / Ekskul",
+        weight: 37,
+        type: "text",
+        align: "left",
+        wrap: true
+    },
+
+    {
+        key: "mapel",
+        title: "Mata Pelajaran",
+        weight: 68,
+        type: "paragraph",
+        align: "left",
+        wrap: true
+    },
+
+    {
+        key: "kikd",
+        title: "No KI/KD",
+        weight: 32,
+        type: "text",
+        align: "center",
+        wrap: false
+    },
+
+    {
+        key: "materi",
+        title: "Kegiatan / Materi",
+        weight: 250,
+        type: "paragraph",
+        align: "justify",
+        wrap: true
+    },
+
+    {
+        key: "hasil",
+        title: "Hasil",
+        weight: 55,
+        type: "paragraph",
+        align: "justify",
+        wrap: true
+    },
+
+    {
+        key: "vol",
+        title: "Vol",
+        weight: 42,
+        type: "number",
+        align: "center",
+        wrap: false
+    },
+
+    {
+        key: "s",
+        title: "S",
+        weight: 23,
+        type: "number",
+        align: "center",
+        wrap: false
+    },
+
+    {
+        key: "i",
+        title: "I",
+        weight: 23,
+        type: "number",
+        align: "center",
+        wrap: false
+    },
+
+    {
+        key: "a",
+        title: "A",
+        weight: 23,
+        type: "number",
+        align: "center",
+        wrap: false
+    },
+
+    {
+        key: "ket",
+        title: "Ket",
+        weight: 60,
+        type: "paragraph",
+        align: "justify",
+        wrap: true
+    }
+
+]
 
     const COL = buildColumns(TABLE);
 
