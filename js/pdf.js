@@ -800,6 +800,22 @@ const FIRST_ROW_OFFSET = TABLE.rowHeight / 2;
 let y = TABLE.y + TABLE.headerHeight + FIRST_ROW_OFFSET;
  
 //----------------------------------------------------
+// AMBIL NILAI RECORD BERDASARKAN KEY
+//----------------------------------------------------
+
+function getCellValue(row, key){
+
+    if(row[key] === undefined || row[key] === null){
+
+        return "";
+
+    }
+
+    return String(row[key]);
+
+}
+
+//----------------------------------------------------
 // DRAW SATU BARIS TABEL
 //----------------------------------------------------
 
