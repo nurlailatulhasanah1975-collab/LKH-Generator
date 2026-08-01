@@ -837,6 +837,32 @@ function getTextAlign(column){
 }
 
 //----------------------------------------------------
+// CETAK SATU CELL
+//----------------------------------------------------
+
+function drawCellText(doc, row, key, x, y){
+
+    const col = getColumn(key);
+
+    doc.text(
+
+        getCellValue(row, key),
+
+        x,
+
+        y,
+
+        {
+
+            align: getTextAlign(col)
+
+        }
+
+    );
+
+}
+    
+//----------------------------------------------------
 // DRAW SATU BARIS TABEL
 //----------------------------------------------------
 
@@ -885,17 +911,23 @@ doc.text(
 );
 
      // Kelas
-  doc.text(
-    String(row.kelas || ""),
+  drawCellText(
+    doc,
+    row,
+    "kelas",
     getColumn("kelas").x + 1,
     TEXT_ROW1
-);    
+);
+    
   // Mata Pelajaran
-  doc.text(
-    String(row.mapel || ""),
+  drawCellText(
+    doc,
+    row,
+    "mapel",
     getColumn("mapel").x + 1,
     TEXT_ROW1
-);  
+); 
+    
   // KI/KD
   doc.text(
     String(row.mapel || ""),
@@ -909,8 +941,10 @@ doc.text(
     TEXT_ROW1
 );    
     // Hasil
-  doc.text(
-    String(row.hasil || ""),
+  drawCellText(
+    doc,
+    row,
+    "hasil",
     getColumn("hasil").x + 1,
     TEXT_ROW1
 );    
