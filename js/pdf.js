@@ -863,6 +863,50 @@ function drawCellText(doc, row, key, x, y){
 }
 
 //----------------------------------------------------
+// HITUNG KEBUTUHAN SATU RECORD
+//----------------------------------------------------
+
+function measureRecord(doc, row){
+
+    let maxLines = 1;
+
+    for(const col of COL){
+
+        if(!col.wrap){
+
+            continue;
+
+        }
+
+        const lines = countCellLines(
+
+            doc,
+
+            getCellValue(row, col.key),
+
+            col.width - 2
+
+        );
+
+        if(lines > maxLines){
+
+            maxLines = lines;
+
+        }
+
+    }
+
+    return {
+
+        lines: maxLines,
+
+        height: TABLE.rowHeight * maxLines
+
+    };
+
+}
+    
+//----------------------------------------------------
 // HITUNG JUMLAH BARIS PADA SATU CELL
 //----------------------------------------------------
 
