@@ -1062,7 +1062,6 @@ doc.text(
 // GARIS TABEL
 //====================================================
 
-const halfRow = rowHeight / 2;
 
 // Tambah tinggi garis vertikal ke atas
 const VERTICAL_UP = 1;
