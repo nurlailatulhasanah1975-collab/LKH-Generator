@@ -861,6 +861,30 @@ function drawCellText(doc, row, key, x, y){
     );
 
 }
+
+//----------------------------------------------------
+// HITUNG JUMLAH BARIS PADA SATU CELL
+//----------------------------------------------------
+
+function countCellLines(doc, text, width){
+
+    if(text === undefined || text === null){
+
+        return 1;
+
+    }
+
+    const lines = doc.splitTextToSize(
+
+        String(text),
+
+        width
+
+    );
+
+    return Math.max(lines.length, 1);
+
+}
     
 //----------------------------------------------------
 // DRAW SATU BARIS TABEL
