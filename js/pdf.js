@@ -796,7 +796,7 @@ drawTableHeader(doc, TABLE, COL);
 let sheet = getSheetByIndex(excelData,0);
     
 // Posisi awal mengikuti TABLE Engine
-const FIRST_ROW_OFFSET = TABLE.rowHeight / 2;
+const FIRST_ROW_OFFSET = rowHeight / 2;
 let y = TABLE.y + TABLE.headerHeight + FIRST_ROW_OFFSET;
  
 //----------------------------------------------------
@@ -936,6 +936,10 @@ function countCellLines(doc, text, width){
 
 function drawTableRow(doc, row, y){
 
+    const record = measureRecord(doc, row);
+    const rowHeight = record.height;
+    const halfRow = rowHeight / 2;
+
     doc.setFont("helvetica","normal");
     doc.setFontSize(10);
 
@@ -1058,7 +1062,7 @@ doc.text(
 // GARIS TABEL
 //====================================================
 
-const halfRow = TABLE.rowHeight / 2;
+const halfRow = rowHeight / 2;
 
 // Tambah tinggi garis vertikal ke atas
 const VERTICAL_UP = 1;
